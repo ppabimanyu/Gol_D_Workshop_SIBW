@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WORKSHOP WEB</title>
+    <p style="text-align:center"> FORM INPUT DATA </p>
+</head>
+<body>
+<style>
+    p
+    {
+        color:rgb(0, 0, 0);
+        font-family: sans-serif;
+        text-align: center;
+        width: 40%;
+        margin:auto;
+        padding: 20px;
+    }
+         
+    body
+    {
+        background-image: url(https://pusatstudirakyat.org/wp-content/uploads/2019/01/background-biru-langit-keren-12-300x200.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+    <form action="contact.php" method="POST">
+        <fieldset>
+        
+        <p style="text-align:center">
+            <label>No.ID:</label>
+            <input type="text" name="noid" placeholder="No. ID" />
+        </p>
+         <p style="text-align:center">
+            <label>Name:</label>
+            <input type="text" name="nama" placeholder="Name" />
+        </p>
+        <p>
+            <th>Alamat :</th>
+            <th><select id="status" onchange="total">
+                <option>Banyuwangi</option>
+                <option>Bondowoso</option>
+                <option>Jember</option>
+            </select></th>
+       
+        </p>
+        <p style="text-align:center">
+            <label>Nomor Telepon:</label>
+            <input type="text" name="notelepon" placeholder="No Telepon" />
+        </p>
+        <p style="text-align:center">
+            <label>Jenis Kelamin:</label>
+            <label><input type="radio" name="status" value="laki-laki" /> Laki-laki</label>
+            <label><input type="radio" name="status" value="perempuan" /> Perempuan</label>
+        </p>
+        <p style="text-align:center">
+            <label>Username:</label>
+            <input type="text" name="username" placeholder="Username" />
+        </p>
+        <p style="text-align:center">
+            <label>Password:</label>
+            <input type="password" name="password" placeholder="Password" />
+        </p>      
+       </fieldset>   
+    </form>
+
+    <nav>
+        <p style="text-align:center">
+        <a href="target.html"> <button>Kirim</button></a>      
+    </nav>
+
+</body>
+</html>
