@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workshop SIDW</title>
+    <p style="text-align:center"> Form Data Kasir </p>
+</head>
+<body>
+
+    <style>
+        /*untuk teks heading di tag <body>*/
+        p
+        {
+            color:rgb(202, 202, 202);
+            font-family: sans-serif;
+            text-align: center;
+            width: 45%;
+            margin:auto;
+            padding: 20px;
+        }
+         
+        body
+        {
+            background-image: url('http://4.bp.blogspot.com/-uofDTcAahEw/UP8bZ11AA7I/AAAAAAAABOA/-tSN64-Zq1U/s1600/3-black.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        </style>
+
+    <form action="contact.php" method="POST">
+        <fieldset>
+        
+        <p style="text-align:center">
+            <label>No.ID:</label>
+            <input type="text" name="noid" placeholder="No. ID" />
+        </p>
+         <p style="text-align:center">
+            <label>Name:</label>
+            <input type="text" name="nama" placeholder="Name" />
+        </p>
+        <p>
+            <th>Alamat :</th>
+            <th><select id="status" onchange="total">
+            <option>Jember</option>
+            <option>Bondowoso</option>
+            <option>Surabaya</option>
+            </select></th>
+       
+        </p>
+        <p style="text-align:center">
+            <label>No.Telepon:</label>
+            <input type="text" name="notelepon" placeholder="No Telepon" />
+        </p>
+        <p style="text-align:center">
+            <label>Status:</label>
+            <label><input type="radio" name="status" value="laki-laki" /> Laki-laki</label>
+            <label><input type="radio" name="status" value="perempuan" /> Perempuan</label>
+        </p>
+        <p style="text-align:center">
+            <label>Username:</label>
+            <input type="text" name="username" placeholder="Username" />
+        </p>
+        <p style="text-align:center">
+            <label>Password:</label>
+            <input type="text" name="password" placeholder="Password" />
+        </p>
+        
+       </fieldset>
+       
+    </form>
+
+    <nav>
+
+        <p style="text-align:center">
+        <a href="target.html"> <button>Kirim</button></a>
+       
+    </nav>
+
+</body>
+</html>
