@@ -1,0 +1,27 @@
+.table{
+    border: solid 1px black;
+    width: 456px;
+}
+.table .table1{
+    border: solid 1px black;
+    background-color: black;
+    width: 456px;
+    font-size: 24px;
+    color: aliceblue;
+    text-align: center;
+}
+.table .table1 .main{
+    font-size: 12px;
+    color: black;
+    text-align: left;
+}
+input[type=submit]{
+    font-family: sans-serif;
+    font-size: 15px;
+    background: #22a4cf;
+    color: white;
+    border: white 3px solid;
+    border-radius: 5px;
+    padding: 12px 20px;
+    margin-top: 10px;
+}

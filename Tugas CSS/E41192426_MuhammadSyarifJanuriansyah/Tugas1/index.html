@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WORKSHOP WEB</title>
+    <p> FORM INPUT DATA </p>
+    <style>
+        @import url(style.css);
+    </style>
+</head>
+<body>
+
+    <form action="contact.php" method="POST">
+        <fieldset>
+        
+        <p>
+            <label>No.ID:</label>
+            <input type="text" name="noid" placeholder="No. ID" />
+        </p>
+         <p>
+            <label>Name:</label>
+            <input type="text" name="nama" placeholder="Name" />
+        </p>
+        <p>
+            <th>Alamat :</th>
+            <th><select id="status" onchange="total">
+                <option>Banyuwangi</option>
+                <option>Bondowoso</option>
+                <option>Jember</option>
+            </select></th>
+       
+        </p>
+        <p>
+            <label>Nomor Telepon:</label>
+            <input type="text" name="notelepon" placeholder="No Telepon" />
+        </p>
+        <p>
+            <label>Jenis Kelamin:</label>
+            <label><input type="radio" name="status" value="laki-laki" /> Laki-laki</label>
+            <label><input type="radio" name="status" value="perempuan" /> Perempuan</label>
+        </p>
+        <p>
+            <label>Username:</label>
+            <input type="text" name="username" placeholder="Username" />
+        </p>
+        <p>
+            <label>Password:</label>
+            <input type="password" name="password" placeholder="Password" />
+        </p>      
+       </fieldset>   
+    </form>
+
+    <nav>
+        <p>
+        <a href="target.html"> <button>Kirim</button></a>  
+        </p>         
+    </nav>
+
+</body>
+</html>
