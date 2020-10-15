@@ -1,0 +1,36 @@
+.box{
+    margin: 150px auto;
+    height: 300px;
+    width: 600px;
+
+}
+.atas{
+    height: 50px;
+    width: 600px;
+    background-color: greenyellow;
+}
+h1{
+    text-align: center;
+}
+.kiri{
+    height: 250px;
+    width: 200px;
+    float: left;
+    background-color: lightcoral;
+}
+.gambar{
+    background-image: url(https://i.pinimg.com/736x/03/92/82/03928288c2e6b4854199cd47e42a9ee7.jpg);
+    height: 180px;
+    width: 180px;
+    border-radius: 0%;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.kanan{
+    width: 400px;
+    height: 250px;
+    background-color: indianred;
+    float: right;
+}
