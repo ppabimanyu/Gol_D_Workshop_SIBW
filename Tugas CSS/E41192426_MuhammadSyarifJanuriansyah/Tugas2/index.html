@@ -1,76 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Kulineran.id</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <title>WORKSHOP WEB</title>
+    <p> FORM INPUT DATA </p>
+    <style>
+        @import url(style.css);
+    </style>
 </head>
 <body>
-	
-	<header>
-		<h1 class="judul">KULINERAN.ID</h1>
-		<p class="deskripsi">Penyedia saran kulineran terbaik untuk anda coba</p>
-	</header>
 
-	<div class="wrap">
+    <form action="contact.php" method="POST">
+        <fieldset>
+        
+        <p>
+            <label>No.ID:</label>
+            <input type="text" name="noid" placeholder="No. ID" />
+        </p>
+         <p>
+            <label>Name:</label>
+            <input type="text" name="nama" placeholder="Name" />
+        </p>
+        <p>
+            <th>Alamat :</th>
+            <th><select id="status" onchange="total">
+                <option>Banyuwangi</option>
+                <option>Bondowoso</option>
+                <option>Jember</option>
+            </select></th>
+       
+        </p>
+        <p>
+            <label>Nomor Telepon:</label>
+            <input type="text" name="notelepon" placeholder="No Telepon" />
+        </p>
+        <p>
+            <label>Jenis Kelamin:</label>
+            <label><input type="radio" name="status" value="laki-laki" /> Laki-laki</label>
+            <label><input type="radio" name="status" value="perempuan" /> Perempuan</label>
+        </p>
+        <p>
+            <label>Username:</label>
+            <input type="text" name="username" placeholder="Username" />
+        </p>
+        <p>
+            <label>Password:</label>
+            <input type="password" name="password" placeholder="Password" />
+        </p>      
+       </fieldset>   
+    </form>
 
-		<nav class="menu">
-			<ul>
-				<li>
-					<a href="#">Beranda</a>
-				</li>
-				<li>
-					<a href="#">Tentang Kulineran.id</a>
-				</li>
-				<li>
-					<a href="#">Daerah Kuliner</a>
-                </li>
-                <li>
-                    <a href="#">Hubungi Kami</a>
-                </li>
-			</ul>
-		</nav>
+    <nav>
+        <p>
+        <a href="target.html"> <button>Kirim</button></a>  
+        </p>         
+    </nav>
 
-		<aside class="sidebar">
-			<div class="widget">
-				<h2>Welcome</h2>
-				<p>Selamat datang di Kulineran.id</p>
-			</div>
-			<div class="widget">
-				<h2>Promo</h2>
-				<p>Anda bisa mendapat berbagai promo menarik disini <a target="_blank" href="http://rocketchicken.co.id/">http://rocketchicken.co.id/</a>.</p>
-			</div>
-		</aside>
-
-		<div class="blog">
-			<div class="conteudo">
-				<div class="post-info">
-					Di Posting Oleh <b>Muhammad Syarif Januriansyah</b>
-				</div>
-				<img src="https://th.bing.com/th/id/OIP.G_sIwC8SGNRRXVMJwIFMcAAAAA?pid=Api&rs=1">
-				<h1> Pas Harganya, Istimewa Rasanya </h1>
-				<hr>
-				<p>
-                    Rocket Chicken adalah perusahaan waralaba yang bergerak di bidang restoran fast food berbahan dasar ayam. Beberapa menu andalan seperti fried chicken, burger, chicken steak dan beberapa jenis chinese food lainnya menjadi menu andalan di Rocket Chicken.
-                    Dengan pemilihan bumbu dan bahan baku yang berkualitas, Rocket Chicken berusaha untuk menyajikan menu makanan yang lezat, berkualitas dan harganya terjangkau. Hal ini juga ditunjukkan melalui adanya paket-paket menu makanan dan minuman yang harganya cukup terjangkau.
-				</p>				
-				<a href="#" class="continue-lendo">Selengkapnya →</a>
-			</div>
-			<div class="conteudo">
-				<div class="post-info">
-					Di Posting Oleh <b>Muhammad Syarif Januriansyah</b>
-				</div>
-				<img src="https://i0.wp.com/resepkoki.id/wp-content/uploads/2017/11/Resep-Rendang-padang.jpg?fit=1123%2C1300&ssl=1"
-				<h1> Indonesia Banget </h1>
-				<hr>
-				<p>
-					Rendang adalah kuliner yang sudah tak asing lagi di telinga masyarakat Indonesia. Dari rasanya yang lezat itu, tak heran makanan khas ini telah mendunia.
-                    Rendang atau randang adalah masakan daging yang berasal dari Minangkabau. Masakan ini dihasilkan dari proses memasak suhu rendah dalam waktu lama menggunakan aneka rempah-rempah dan santan. Proses memasaknya memakan waktu berjam-jam hingga yang tinggal hanyalah potongan daging berwarna hitam pekat dan dedak. 
-                </p>				
-				<a href="#" class="continue-lendo">Selengkapnya →</a>
-			</div>
-		</div>
-
-	</div>
- 
 </body>
 </html>
