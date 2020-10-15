@@ -1,0 +1,22 @@
+    p
+    {
+        text-align: center;
+        color:rgb(0, 0, 0);
+        font-family: sans-serif;
+        text-align: center;
+        width: 40%;
+        margin:auto;
+        padding: 20px;
+    }
+         
+    body
+    {
+        background-image: url(https://pusatstudirakyat.org/wp-content/uploads/2019/01/background-biru-langit-keren-12-300x200.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    h1
+    {
+        text-align: center;
+    }
