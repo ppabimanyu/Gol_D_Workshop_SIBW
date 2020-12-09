@@ -51,11 +51,11 @@ $barang = query("SELECT * FROM tbl_barang");
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mr-2 active">
+                    <li class="nav-item mr-2">
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mr-2" href="menu.php">Menu</a>
+                        <a class="nav-link mr-2 active" href="menu.php">Menu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mr-2" href="#">Promo</a>
