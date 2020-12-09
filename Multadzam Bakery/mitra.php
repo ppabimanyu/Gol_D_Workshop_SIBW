@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- My CSS -->
   <link rel="stylesheet" href="css/mitra.css">
+  <link rel="stylesheet" href="css/navbar.css">
 </head>
 
 <body>

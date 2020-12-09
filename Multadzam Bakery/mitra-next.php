@@ -12,12 +12,12 @@ if (!isset($_POST["submit"])) {
 // cek submit sudah ditekan atau belum 
 if (isset($_POST["submit"])) {
     // ambil data dari tiap elemen dalam form
-    $first_name = $_POST["first_name"];
-    $last_name = $_POST["last_name"];
-    $address = $_POST["address"];
-    $email = $_POST["email"];
-    $phone = $_POST["phone"];
-    $add_information = $_POST["add_information"];
+    $first_name = htmlspecialchars($_POST["first_name"]);
+    $last_name = htmlspecialchars($_POST["last_name"]);
+    $address = htmlspecialchars($_POST["address"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $phone = htmlspecialchars($_POST["phone"]);
+    $add_information = htmlspecialchars($_POST["add_information"]);
 
     // query insert data
     $query = "INSERT INTO mitra_partner
@@ -47,7 +47,7 @@ if (isset($_POST["submit"])) {
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="css/style.css">
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/mitra.css">
+    <link rel="stylesheet" href="css/navbar.css">
 </head>
 
 <body>
@@ -91,15 +91,15 @@ if (isset($_POST["submit"])) {
 
     <!-- Form2 -->
     <div class="abcd">
-        <br><br><br><br><br><br>
-        <div class="container mt-5">
-            <div class="alert alert-success" role="alert">
-                <h4 class="alert-heading">Well done!</h4>
-                <p>Mohon tunggu peberitahuan lebih lanjut dari staf kami.</p>
-            </div>
-            <button type="button" class="btn btn-success">Start Order</button>
+        <br><br><br><br><br><br></div><br><br><br><br><br><br>
+    <div class="container mt-5">
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>Mohon tunggu peberitahuan lebih lanjut dari staf kami.</p>
         </div>
+        <button type="button" class="btn btn-success">Start Order</button>
     </div>
+    </div><br><br><br><br><br><br></div><br><br><br><br><br><br>
     <!-- Akhir Form2 -->
 
     <!-- Footer -->
