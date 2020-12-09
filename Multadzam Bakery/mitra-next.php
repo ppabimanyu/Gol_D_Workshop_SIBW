@@ -35,7 +35,7 @@ if (isset($_POST["submit"])) {
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Material Design for Bootstrap</title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Google Fonts Roboto -->
@@ -66,7 +66,7 @@ if (isset($_POST["submit"])) {
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mr-2" href="#">Menu</a>
+                        <a class="nav-link mr-2" href="menu.php">Menu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mr-2" href="#">Promo</a>

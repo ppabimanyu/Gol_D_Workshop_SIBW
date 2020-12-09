@@ -38,7 +38,7 @@
             <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mr-2" href="#">Menu</a>
+            <a class="nav-link mr-2" href="menu.php">Menu</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mr-2" href="#">Promo</a>
