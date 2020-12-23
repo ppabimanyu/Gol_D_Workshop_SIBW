@@ -1,17 +1,6 @@
 <?php
 // koneksi
-$conn = mysqli_connect("localhost", "root", "", "multadzam");
-
-function query($query)
-{
-    global $conn;
-    $result = mysqli_query($conn, $query);
-    $rows = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
-    return $rows;
-}
+require 'functions.php';
 $barang = query("SELECT * FROM tbl_barang");
 ?>
 <!DOCTYPE html>
@@ -90,18 +79,16 @@ $barang = query("SELECT * FROM tbl_barang");
                             <!--Card image-->
                             <div class="view overlay">
                                 <img class="card-img-top" src="<?= $brg["foto_roti"]; ?>" alt="Card image cap">
-                                <a href="#!">
+                                <a href="produk.php?id=<?= $brg["id"]; ?>">
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
                             </div>
                             <!--Card content-->
                             <div class="card-body">
                                 <!--Title-->
-                                <h4 class="card-title"><?= $brg["nama_roti"]; ?></h4>
+                                <h4 class="card-title"><a href="produk.php?id=<?= $brg["id"]; ?>"><?= $brg["nama_roti"]; ?></a></h4>
                                 <!--Text-->
-                                <p class="card-text"><?= $brg["harga_roti"]; ?></p>
-                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                                <button type="button" class="btn btn-light-blue btn-md">Order</button>
+                                <p class="card-text">Rp<?= number_format($brg["harga_roti"]); ?></p>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 <?php
 // koneksi
-$conn = mysqli_connect("localhost", "root", "", "multadzam");
+require 'functions.php';
 
 // cek submit sudah ditekan atau belum 
 if (!isset($_POST["submit"])) {
