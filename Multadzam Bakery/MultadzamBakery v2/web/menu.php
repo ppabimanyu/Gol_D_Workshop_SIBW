@@ -116,7 +116,7 @@ $produks = query("SELECT * FROM produk");
                                 </div>
                             </div>
                         </div>
-                        <br>
+                        <br><br><br>
                     </div>
                 <?php endforeach; ?>
             </div>

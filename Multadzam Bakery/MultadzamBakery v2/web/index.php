@@ -90,7 +90,7 @@ $produks = query("SELECT * FROM produk");
             <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://mdbootstrap.com/img/new/slides/041.jpg" class="d-block w-100" alt="..." />
+                        <img src="img/page.jpeg" class="d-block w-100" alt="..." />
                     </div>
                     <?php foreach ($fms as $fm) : ?>
                         <div class="carousel-item">
@@ -105,7 +105,7 @@ $produks = query("SELECT * FROM produk");
                                         <a href="" style="color:#707070">
                                             <h4><?= $fm['nama_fm']; ?></h4>
                                         </a>
-                                        <p style="width: 126px; font-family: 'Cormorant Upright', serif; font-size: 16px;"><?= $fm['deskripsi_fm']; ?></p>
+                                        <p style=" font-family: 'Cormorant Upright', serif; font-size: 16px;"><?= $fm['deskripsi_fm']; ?></p>
                                         <h5 style="color:#DABC81 ;">Rp<?= number_format($fm['harga_fm']); ?></h5>
                                         <a class="btn btn-warning" href="produk2.php?id_fm=<?= $fm['id_fm']; ?>">BUY NOW</a>
                                     </div>
@@ -158,11 +158,11 @@ $produks = query("SELECT * FROM produk");
                                 </div>
                             </div>
                         </div>
-                        <br>
+                        <br><br><br>
                     </div>
                 <?php endforeach; ?>
             </div>
-        </div><br><br>
+        </div><br><br><br><br>
 
         <!-- End Produk -->
 

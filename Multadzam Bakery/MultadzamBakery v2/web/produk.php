@@ -95,7 +95,7 @@ $produks = query("SELECT * FROM produk WHERE id_produk = $id_produk");
                         <a href="" style="color:#707070">
                             <h4><?= $produk['nama_produk']; ?></h4>
                         </a>
-                        <p style="width: 126px; font-family: 'Cormorant Upright', serif; font-size: 16px;"><?= $produk['deskripsi_produk']; ?></p>
+                        <p style="font-family: 'Cormorant Upright', serif; font-size: 16px;"><?= $produk['deskripsi_produk']; ?></p>
                         <h5 style="color:#DABC81 ;">Rp<?= number_format($produk['harga_produk']); ?></h5>
                         <form action="cart.php" method="POST">
                             <input type="hidden" name="id" value="<?= $produk['id_produk']; ?>">

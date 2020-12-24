@@ -95,7 +95,7 @@ $fms = query("SELECT * FROM featured_menu WHERE id_fm = $id_fm");
                         <a href="" style="color:#707070">
                             <h4><?= $fm['nama_fm']; ?></h4>
                         </a>
-                        <p style="width: 126px; font-family: 'Cormorant Upright', serif; font-size: 16px;"><?= $fm['deskripsi_fm']; ?></p>
+                        <p style="font-family: 'Cormorant Upright', serif; font-size: 16px;"><?= $fm['deskripsi_fm']; ?></p>
                         <h5 style="color:#DABC81 ;">Rp<?= number_format($fm['harga_fm']); ?></h5>
                         <form action="cart.php" method="POST">
                             <input type="hidden" name="id" value="<?= $produk['id_produk']; ?>">

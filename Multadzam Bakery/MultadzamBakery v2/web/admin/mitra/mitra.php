@@ -120,8 +120,9 @@ $mitras = query("SELECT * FROM mitra");
                     <td width="100"><?= $mitra['id_mitra']; ?> </td>
                     <td width="100"><?= $mitra['name_mitra']; ?> </td>
                     <td width="100"><?= $mitra['email_mitra']; ?> </td>
-                    <td width="100"><?= $mitra['address']; ?> </td>
-                    <td width=max><?= $mitra['additional_information_mitra']; ?></td>
+                    <td width="100"><?= $mitra['phone_mitra']; ?> </td>
+                    <td width="100"><?= $mitra['address_mitra']; ?> </td>
+                    <td width=max><?= $mitra['add_information_mitra']; ?></td>
                 </tr>
             <?php endforeach; ?>
 
