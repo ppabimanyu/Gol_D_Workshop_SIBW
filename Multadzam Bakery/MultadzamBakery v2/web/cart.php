@@ -1,7 +1,7 @@
 <?php
+session_start();
 require 'admin/functions.php';
-$id_produk = $_GET['id_produk'];
-$produks = query("SELECT * FROM produk WHERE id_produk = $id_produk");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,33 +84,58 @@ $produks = query("SELECT * FROM produk WHERE id_produk = $id_produk");
     <!-- End Navbar -->
 
     <!-- Detail Produk -->
-    <div class="container" style=" margin-top: 100px; width:66%; background-color:white; margin-left:17%">
-        <div class="mx-auto" style="text-align: center; font-family: 'Cormorant Upright', serif; font-size: 22px;">Detail Produk</div><br>
-        <hr>
-        <?php foreach ($produks as $produk) : ?>
-            <div class="container m-5">
-                <div class="row">
-                    <div class="col-xl-6" style="min-height: 400px; background-color: white;"> <a href=""><img style=" width: 475px; border-radius: 20px;" src="img/foto_produk/<?= $produk['gambar_produk']; ?>" alt=""></a></div>
-                    <div class="col-xl-6">
-                        <a href="" style="color:#707070">
-                            <h4><?= $produk['nama_produk']; ?></h4>
-                        </a>
-                        <p style="font-family: 'Cormorant Upright', serif; font-size: 16px;"><?= $produk['deskripsi_produk']; ?></p>
-                        <h5 style="color:#DABC81 ;">Rp<?= number_format($produk['harga_produk']); ?></h5>
-                        <form action="add_cart.php" method="POST">
-                            <input type="hidden" name="id_produk" value="<?= $produk['id_produk']; ?>">
-                            <input type="number" name="quantity" size="5" autofocus value="1" autocomplete="off">
-                            <button type="submit" name="pesan" class="btn btn-warning">ADD TO CART</button>
-                        </form>
+    <div class="cart" style="background-color:#F9F9F9; margin-top:-100px;">
+        <div class="container" style="background-color:#F9F9F9; padding-top: 200px; width:66%; margin-left:17%">
+            <div class="mx-auto" style="text-align: center; font-family: 'Cormorant Upright', serif; font-size: 22px;">Cart</div><br>
+            <div class="container" style="background-color:white; padding-top:60px; padding-bottom: 50px;">
+                <?php foreach ($_SESSION['keranjang'] as $id_produk => $qty) : ?>
+                    <?php
+                    $brg = query("SELECT * FROM produk WHERE id_produk = $id_produk")[0];
+                    $gambar_produk = ($brg["gambar_produk"]);
+                    $nama_produk = ($brg["nama_produk"]);
+                    $harga_produk = ($brg["harga_produk"]);
+                    $_SESSION['subharga'][$id_produk] = $brg["harga_produk"] * $qty;
+                    ?>
+
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;"><br><br><a class="link-danger" href=""><i class="fas fa-trash-alt fa-2x"></i></a></div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="bg-image hover-zoom">
+                                        <img style="border-radius: 10px" src="img/foto_produk/<?= $gambar_produk; ?>" alt="" class="w-100" />
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="col-md-12">
+                                        <h5><?= $nama_produk; ?></h5>
+                                    </div><br>
+                                    <h5 style="font-family: 'Jomolhari', serif; font-size: 13px; color:#DABC81;">Rp<?= number_format($harga_produk); ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2" style="font-family: 'Jomolhari', serif;"><br><br>x<?= $_SESSION['keranjang'][$id_produk] ?></div>
+                        <div class="col-md-2" style="font-family: 'Jomolhari', serif;"><br><br><?= $_SESSION['subharga'][$id_produk]; ?></div>
+                        <div class="container">
+                            <hr>
+                        </div>
                     </div>
+                    <br><br><br><br>
+                <?php endforeach; ?>
+                <div class="row">
+                    <div class="col-md-8"></div>
+                    <div class="col-md-2"><a href="menu.php" class=" btn btn-primary">Lanjut Belanja</a></div>
+                    <div class="col-md-2"><a href="checkout.php" class=" btn btn-primary">Checkout</a></div>
                 </div>
-            </div>
-        <?php endforeach; ?>
-    </div><br><br>
+
+
+            </div><br><br>
+        </div>
+    </div>
     <!-- End Detail Produk -->
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start">
+    <footer class=" text-center text-lg-start" style="margin-top: 60px;">
         <!-- Grid container -->
         <div class="container p-4" style="width:60%; text-align:center">
             <!--Grid row-->
@@ -175,7 +200,7 @@ $produks = query("SELECT * FROM produk WHERE id_produk = $id_produk");
         <!-- Grid container -->
 
         <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1)">
             © 2020 Copyright:
             <a class="text-dark" href="index.php">MultadzamBakery</a>
         </div>
