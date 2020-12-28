@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Des 2020 pada 18.16
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.4.10
+-- Generation Time: Dec 28, 2020 at 03:27 PM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cart`
+-- Table structure for table `cart`
 --
 
 CREATE TABLE `cart` (
@@ -38,7 +39,7 @@ CREATE TABLE `cart` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `contact_us`
+-- Table structure for table `contact_us`
 --
 
 CREATE TABLE `contact_us` (
@@ -50,7 +51,7 @@ CREATE TABLE `contact_us` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `contact_us`
+-- Dumping data for table `contact_us`
 --
 
 INSERT INTO `contact_us` (`id_pesan`, `name_pesan`, `email_pesan`, `subject`, `pesan`) VALUES
@@ -59,7 +60,7 @@ INSERT INTO `contact_us` (`id_pesan`, `name_pesan`, `email_pesan`, `subject`, `p
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `featured_menu`
+-- Table structure for table `featured_menu`
 --
 
 CREATE TABLE `featured_menu` (
@@ -71,7 +72,7 @@ CREATE TABLE `featured_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `featured_menu`
+-- Dumping data for table `featured_menu`
 --
 
 INSERT INTO `featured_menu` (`id_fm`, `nama_fm`, `harga_fm`, `deskripsi_fm`, `gambar_fm`) VALUES
@@ -81,7 +82,7 @@ INSERT INTO `featured_menu` (`id_fm`, `nama_fm`, `harga_fm`, `deskripsi_fm`, `ga
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mitra`
+-- Table structure for table `mitra`
 --
 
 CREATE TABLE `mitra` (
@@ -94,7 +95,7 @@ CREATE TABLE `mitra` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `mitra`
+-- Dumping data for table `mitra`
 --
 
 INSERT INTO `mitra` (`id_mitra`, `name_mitra`, `email_mitra`, `phone_mitra`, `address_mitra`, `add_information_mitra`) VALUES
@@ -104,7 +105,7 @@ INSERT INTO `mitra` (`id_mitra`, `name_mitra`, `email_mitra`, `phone_mitra`, `ad
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE `produk` (
@@ -116,79 +117,79 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga_produk`, `deskripsi_produk`, `gambar_produk`) VALUES
-(11, 'bgfbfdn', 56767, 'fgnghm', '249585.jpg'),
-(12, 'asxasc', 56767, 'efwvgreht', 'Cc.jpeg'),
-(13, 'asdf', 8765, 'sdagsrjnymkuk,', 'IMG_20190824_131340.jpg'),
-(14, 'asdf', 8765, 'sdagsrjnymkuk,', 'IMG_20190625_130710.jpg');
+(11, 'Roti O', 56767, 'Roti O memiliki rasa cokelat.', '1.jpeg'),
+(12, 'Roti Sosis', 56767, 'Roti Sosis yang memiliki cita rasa yang tinggi.', '2.jpeg'),
+(13, 'Roti Coklat', 8765, 'Roti Coklat memiliki misis coklat diatasnya.', '3.jpeg'),
+(14, 'Pizza Mini', 8765, 'Roti Pizza Mini yang memiliki cita rasa yang tinggi.', '4.jpeg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `cart`
+-- Indexes for table `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id_cart`);
 
 --
--- Indeks untuk tabel `contact_us`
+-- Indexes for table `contact_us`
 --
 ALTER TABLE `contact_us`
   ADD PRIMARY KEY (`id_pesan`);
 
 --
--- Indeks untuk tabel `featured_menu`
+-- Indexes for table `featured_menu`
 --
 ALTER TABLE `featured_menu`
   ADD PRIMARY KEY (`id_fm`);
 
 --
--- Indeks untuk tabel `mitra`
+-- Indexes for table `mitra`
 --
 ALTER TABLE `mitra`
   ADD PRIMARY KEY (`id_mitra`);
 
 --
--- Indeks untuk tabel `produk`
+-- Indexes for table `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `cart`
+-- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
   MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `contact_us`
+-- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
   MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `featured_menu`
+-- AUTO_INCREMENT for table `featured_menu`
 --
 ALTER TABLE `featured_menu`
   MODIFY `id_fm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `mitra`
+-- AUTO_INCREMENT for table `mitra`
 --
 ALTER TABLE `mitra`
   MODIFY `id_mitra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `produk`
+-- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
