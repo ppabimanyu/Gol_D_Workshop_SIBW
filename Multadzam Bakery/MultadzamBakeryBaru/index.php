@@ -73,7 +73,7 @@ $produks = query("SELECT * FROM produk");
                                 <li><a class="dropdown-item" href="contact.php">Contact Us</a></li>
                             </ul>
                         </li>
-                        <li><a href="" class="link-dark"><i class=" fas fa-shopping-bag fa-2x"></i></a></li>
+                        <li><a href="cart.php" class="link-dark"><i class=" fas fa-shopping-bag fa-2x"></i></a></li>
                     </ul>
                 </div>
                 <!-- Collapsible wrapper -->
@@ -182,7 +182,7 @@ $produks = query("SELECT * FROM produk");
                                 Rasa dan desain nya oke banget.
                                 Beli di web juga sangat gampang dan praktis.
                             </p>
-                            <h5 class="card-title">Nicolous D</h5>
+                            <h5 class="card-title">Bambang</h5>
                         </div>
                     </div>
                 </div>
@@ -194,7 +194,7 @@ $produks = query("SELECT * FROM produk");
                                 Rasa dan desain nya oke banget.
                                 Beli di web juga sangat gampang dan praktis.
                             </p>
-                            <h5 class="card-title">Nicolous D</h5>
+                            <h5 class="card-title">Tono</h5>
                         </div>
                     </div>
                 </div>
@@ -206,7 +206,7 @@ $produks = query("SELECT * FROM produk");
                                 Rasa dan desain nya oke banget.
                                 Beli di web juga sangat gampang dan praktis.
                             </p>
-                            <h5 class="card-title">Nicolous D</h5>
+                            <h5 class="card-title">Siti</h5>
                         </div>
                     </div>
                 </div>
