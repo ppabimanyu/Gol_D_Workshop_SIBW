@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Multadzam Bakery</title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="assets/images/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
@@ -99,25 +99,25 @@
         <form action="mitra_proses.php" method="POST">
             <!-- Text input -->
             <div class="form-outline mb-4">
-                <input type="text" id="form6Example4" class="form-control" name="name" />
+                <input type="text" id="form6Example4" class="form-control" name="name" required />
                 <label class="form-label" for="form6Example4">Name</label>
             </div>
 
             <!-- Email input -->
             <div class="form-outline mb-4">
-                <input type="email" id="form6Example5" class="form-control" name="email" />
+                <input type="email" id="form6Example5" class="form-control" name="email" required />
                 <label class="form-label" for="form6Example5">Email</label>
             </div>
 
             <!-- Number input -->
             <div class="form-outline mb-4">
-                <input type="number" id="form6Example6" class="form-control" name="phone" />
+                <input type="number" id="form6Example6" class="form-control" name="phone" required />
                 <label class="form-label" for="form6Example6">Phone</label>
             </div>
 
             <!-- Text input -->
             <div class="form-outline mb-4">
-                <input type="text" id="form6Example4" class="form-control" name="address" />
+                <input type="text" id="form6Example4" class="form-control" name="address" required />
                 <label class="form-label" for="form6Example4">Address</label>
             </div>
 

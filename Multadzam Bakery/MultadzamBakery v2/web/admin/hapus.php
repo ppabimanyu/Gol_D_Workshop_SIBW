@@ -2,11 +2,8 @@
 require 'functions.php';
 
 $id_fm = $_GET['id_fm'];
-
 $id_produk = $_GET['id_produk'];
-
 $id_pesan = $_GET['id_pesan'];
-
 $id_mitra = $_GET['id_mitra'];
 
 

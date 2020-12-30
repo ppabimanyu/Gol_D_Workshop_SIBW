@@ -12,6 +12,7 @@
   @include border-radius($list-group-border-radius);
 }
 
+
 // Interactive list items
 //
 // Use anchor or button elements instead of `li`s or `div`s to create interactive
@@ -23,8 +24,7 @@
   text-align: inherit; // For `<button>`s (anchors inherit)
 
   // Hover state
-  &:hover,
-  &:focus {
+  @include hover-focus() {
     z-index: 1; // Place hover/focus items above their siblings for proper border styling
     color: $list-group-action-hover-color;
     text-decoration: none;
@@ -36,6 +36,7 @@
     background-color: $list-group-action-active-bg;
   }
 }
+
 
 // Individual list items
 //
@@ -83,6 +84,7 @@
   }
 }
 
+
 // Horizontal
 //
 // Change the layout of list group items from vertical (default) to horizontal.
@@ -96,20 +98,20 @@
 
       > .list-group-item {
         &:first-child {
-          @include border-bottom-start-radius($list-group-border-radius);
-          @include border-top-end-radius(0);
+          @include border-bottom-left-radius($list-group-border-radius);
+          @include border-top-right-radius(0);
         }
 
         &:last-child {
-          @include border-top-end-radius($list-group-border-radius);
-          @include border-bottom-start-radius(0);
+          @include border-top-right-radius($list-group-border-radius);
+          @include border-bottom-left-radius(0);
         }
 
         &.active {
           margin-top: 0;
         }
 
-        + .list-group-item {
+        & + .list-group-item {
           border-top-width: $list-group-border-width;
           border-left-width: 0;
 
@@ -122,6 +124,7 @@
     }
   }
 }
+
 
 // Flush list items
 //
@@ -140,19 +143,12 @@
   }
 }
 
-// scss-docs-start list-group-modifiers
-// List group contextual variants
+
+// Contextual variants
 //
 // Add modifier classes to change text and background color on individual items.
 // Organizationally, this must come after the `:hover` states.
 
-@each $state, $value in $theme-colors {
-  $background: shift-color($value, $list-group-item-bg-scale);
-  $color: shift-color($value, $list-group-item-color-scale);
-  @if (contrast-ratio($background, $color) < $min-contrast-ratio) {
-    $color: mix($value, color-contrast($background), abs($alert-color-scale));
-  }
-
-  @include list-group-item-variant($state, $background, $color);
+@each $color, $value in $theme-colors {
+  @include list-group-item-variant($color, theme-color-level($color, -9), theme-color-level($color, 6));
 }
-// scss-docs-end list-group-modifiers
