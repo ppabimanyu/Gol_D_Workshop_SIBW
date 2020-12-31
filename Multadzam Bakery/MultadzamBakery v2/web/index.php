@@ -12,7 +12,7 @@ $produks = query("SELECT * FROM produk");
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Multadzam Bakery</title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="assets/images/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
@@ -90,7 +90,7 @@ $produks = query("SELECT * FROM produk");
             <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="img/page.jpeg" class="d-block w-100" alt="..." />
+                        <img src="assets/images/page.jpeg" class="d-block w-100" alt="..." />
                     </div>
                     <?php foreach ($fms as $fm) : ?>
                         <div class="carousel-item">
@@ -98,7 +98,7 @@ $produks = query("SELECT * FROM produk");
                                 <div class="row">
                                     <div class="col-xl-6" style="min-height: 400px; background-color: white;"> <a href="">
                                             <div class="bg-image hover-zoom">
-                                                <img style="width: 600px; border-radius: 20px;" src="img/foto_produk/<?= $fm['gambar_fm']; ?>" class="w-100" />
+                                                <img style="width: 600px; border-radius: 20px;" src="assets/images/foto_produk/<?= $fm['gambar_fm']; ?>" class="w-100" />
                                             </div>
                                         </a></div>
                                     <div class="col-xl-6">
@@ -139,7 +139,7 @@ $produks = query("SELECT * FROM produk");
                             <div class="col-md-12">
                                 <a href="produk.php?id_produk=<?= $produk['id_produk']; ?>">
                                     <div class="bg-image hover-zoom">
-                                        <img style="border-radius: 10px" src="img/foto_produk/<?= $produk['gambar_produk']; ?>" alt="" class="w-100" />
+                                        <img style="border-radius: 10px" src="assets/images/foto_produk/<?= $produk['gambar_produk']; ?>" alt="" class="w-100" />
                                     </div>
                                 </a>
                             </div>

@@ -12,7 +12,7 @@ $produks = query("SELECT * FROM produk");
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Multadzam Bakery</title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="assets/images/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
@@ -97,7 +97,7 @@ $produks = query("SELECT * FROM produk");
                             <div class="col-md-12">
                                 <a href="produk.php?id_produk=<?= $produk['id_produk']; ?>">
                                     <div class="bg-image hover-zoom">
-                                        <img style="border-radius: 10px" src="img/foto_produk/<?= $produk['gambar_produk']; ?>" alt="" class="w-100" />
+                                        <img style="border-radius: 10px" src="assets/images/foto_produk/<?= $produk['gambar_produk']; ?>" alt="" class="w-100" />
                                     </div>
                                 </a>
                             </div>

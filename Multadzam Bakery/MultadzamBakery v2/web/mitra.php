@@ -83,7 +83,7 @@
         <div class="mx-auto" style="text-align: center; font-family: 'Cormorant Upright', serif; font-size: 22px;">Mitra</div><br>
         <hr>
         <div class="bg-image">
-            <img src="img/mitra.jpeg" class="img-fluid" alt="Sample" />
+            <img src="assets/images/mitra.jpeg" class="img-fluid" alt="Sample" />
             <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
                 <div class="d-flex justify-content-center align-items-center h-100">
                     <p class="text-white mb-0">Can you see me?</p>
