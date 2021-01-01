@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Multadzam Bakery</title>
     <!-- MDB icon -->
-    <link rel="icon" href="assets/images/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
@@ -84,7 +84,7 @@
         <hr>
         <div class="container m-5">
             <div class="row">
-                <div class="col-xl-6" style="min-height: 400px; background-color: white;"> <a href=""><img style=" width: 475px; border-radius: 20px;" src="assets/images/Logo Multadzam Bakery.jpeg"></a></div>
+                <div class="col-xl-6" style="min-height: 400px; background-color: white;"> <a href=""><img style=" width: 475px; border-radius: 20px;" src="img/Logo Multadzam Bakery.jpeg"></a></div>
                 <div class=" col-xl-6">
                     <h2 style="width: 300px; font-size: 24px;">Tentang Multadzam Bakery</h2><br>
                     <p style="font-size: 18px; text-indent: 60px;">Multadzam Bakery adalah toko roti berdomisili jember yang didirikan tahun 2020. Multadzam Bakery adalah toko roti yang menjual aneka macam
