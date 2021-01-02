@@ -1,6 +1,6 @@
 <?php
 // koneksi
-require 'admin/functions.php';
+require 'functions.php';
 session_start();
 
 $id_produk = $_POST['id_produk'];

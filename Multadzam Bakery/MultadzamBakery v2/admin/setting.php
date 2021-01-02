@@ -76,12 +76,12 @@
 							</a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
-								<img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+								<img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item" href="setting.php"><i class="align-middle mr-1" data-feather="settings"></i> Settings</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="user"></i> Log out</a>
+								<a class="dropdown-item" href="logout.php"><i class="align-middle mr-1" data-feather="user"></i> Log out</a>
 							</div>
 						</li>
 					</ul>

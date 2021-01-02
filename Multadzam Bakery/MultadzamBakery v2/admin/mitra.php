@@ -13,9 +13,9 @@ $mitras = query("SELECT * FROM mitra");
 	<meta name="author" content="AdminKit">
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+	<link rel="shortcut icon" href="img/icons/mdb-favicon.ico" />
 
-	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+	<title>Multadzam Bakery</title>
 
 	<link href="css/app.css" rel="stylesheet">
 </head>
@@ -80,12 +80,12 @@ $mitras = query("SELECT * FROM mitra");
 							</a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
-								<img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+								<img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item" href="setting.php"><i class="align-middle mr-1" data-feather="settings"></i> Settings</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="user"></i> Log out</a>
+								<a class="dropdown-item" href="logout.php"><i class="align-middle mr-1" data-feather="user"></i> Log out</a>
 							</div>
 						</li>
 					</ul>
@@ -116,7 +116,7 @@ $mitras = query("SELECT * FROM mitra");
 														<strong>Additional Information : </strong> <?= $mitra['add_information_mitra']; ?><br>
 
 													</div><br>
-													<a href="#" class="btn btn-sm btn-danger mt-1"><i class="feather-sm"></i>Delete</a>
+													<a href="hapus.php?id_mitra=<?= $mitra['id_mitra']; ?>" onclick="return confirm('yakin?');" class="btn btn-sm btn-danger mt-1"><i class="feather-sm"></i>Delete</a>
 												</div>
 											</div>
 										</div>

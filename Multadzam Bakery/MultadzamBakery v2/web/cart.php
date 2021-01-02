@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'admin/functions.php';
+require 'functions.php';
 
 ?>
 <!DOCTYPE html>

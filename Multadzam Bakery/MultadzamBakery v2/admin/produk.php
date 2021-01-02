@@ -14,11 +14,13 @@ $produks = query("SELECT * FROM produk");
 	<meta name="author" content="AdminKit">
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+	<link rel="shortcut icon" href="img/icons/mdb-favicon.ico" />
 
-	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+	<title>Multadzam Bakery</title>
 
 	<link href="css/app.css" rel="stylesheet">
+	<!-- Volt CSS -->
+	<link type="text/css" href="../css/volt.css" rel="stylesheet">
 </head>
 
 <body>
@@ -81,12 +83,12 @@ $produks = query("SELECT * FROM produk");
 							</a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
-								<img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+								<img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item" href="setting.php"><i class="align-middle mr-1" data-feather="settings"></i> Settings</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="user"></i> Log out</a>
+								<a class="dropdown-item" href="logout.php"><i class="align-middle mr-1" data-feather="user"></i> Log out</a>
 							</div>
 						</li>
 					</ul>
@@ -95,71 +97,110 @@ $produks = query("SELECT * FROM produk");
 
 			<main class="content">
 				<div class="container-fluid p-0">
-
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
 								<div class="card-body">
 									<div class="mx-auto" style="width: 120px;font-family: 'Cormorant Upright', serif;
                                 font-size: 18px;">Featured Menu</div><br>
-									<table border="1" cellpadding="10" cellspacing="0">
-
-										<tr>
-											<th>Action</th>
-											<th>ID Produk</th>
-											<th>Produk</th>
-											<th>Nama</th>
-											<th>Harga</th>
-											<th>Deskripsi</th>
-										</tr>
-
-										<?php foreach ($ftmenus as $ftmenu) : ?>
+									<table class="table table-hover">
+										<thead>
 											<tr>
-												<td>
-													<a href="../hapus.php?id_fm=<?= $ftmenu['id_fm']; ?>" onclick="return confirm('yakin?');" class="link-danger"><i class=" fas fa-trash"></i></a>
-												</td>
-												<td width="100"><?= $ftmenu['id_fm']; ?> </td>
-												<td width="100"><img src="../web/img/foto_produk/<?= $ftmenu['gambar_fm']; ?>" width="50"></td>
-												<td width="300"><?= $ftmenu['nama_fm']; ?></td>
-												<td width="100">Rp<?= number_format($ftmenu['harga_fm']); ?></td>
-												<td width=max><?= $ftmenu['deskripsi_fm']; ?></td>
+												<th>ID</th>
+												<th>Produk</th>
+												<th>Nama</th>
+												<th>Harga</th>
+												<th>Deskripsi</th>
+												<th width="100">Action</th>
 											</tr>
-										<?php endforeach; ?>
+										</thead>
+										<tbody>
+											<!-- Item -->
+											<?php foreach ($ftmenus as $ftmenu) : ?>
+												<tr>
+													<td>
+														<a href="../invoice.html" class="font-weight-bold">
+															<?= $ftmenu['id_fm']; ?>
+														</a>
+													</td>
+													<td width="200">
+														<img class="rounded" src="../web/img/foto_produk/<?= $ftmenu['gambar_fm']; ?>" width="120">
+													</td>
+													<td width="200"><span class="font-weight-bold"><?= $ftmenu['nama_fm']; ?></span></td>
+													<td width="200"><span class="font-weight-bold text-warning">Rp<?= number_format($ftmenu['harga_fm']); ?></span></td>
+													<td><span class="font-weight-normal"><?= $ftmenu['deskripsi_fm']; ?></span></td>
 
-
+													<td>
+														<a class="text-danger" href="hapus.php?id_fm=<?= $ftmenu['id_fm']; ?>" onclick="return confirm('yakin?');"><span class="fas fa-trash-alt mr-2"></span>Remove</a>
+													</td>
+												</tr>
+											<?php endforeach; ?>
+										</tbody>
 									</table>
-									<br><br>
-
-									<div class="mx-auto" style="width: 100px;font-family: 'Cormorant Upright', serif;
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="mx-auto " style="width: 100px;font-family: 'Cormorant Upright', serif;
                                 font-size: 18px;">Our Produk</div><br>
-									<table border="1" cellpadding="10" cellspacing="0">
-
-										<tr>
-											<th>Action</th>
-											<th>ID Produk</th>
-											<th>Produk</th>
-											<th>Nama</th>
-											<th>Harga</th>
-											<th>Deskripsi</th>
-										</tr>
-
-										<?php foreach ($produks as $produk) : ?>
+									<table class="table table-hover">
+										<thead>
 											<tr>
-												<td>
-													<a href="hapus.php?id_produk=<?= $produk['id_produk']; ?>" onclick="return confirm('yakin?');" class="link-danger"><i class=" fas fa-trash"></i></a>
-													<a href="ftmenu.php?id_produk=<?= $produk['id_produk']; ?>" class="link-success"><i class="fas fa-shopping-bag"></i></a>
-												</td>
-												<td width="100"><?= $produk['id_produk']; ?> </td>
-												<td width="100"><img src="../web/img/foto_produk/<?= $produk['gambar_produk']; ?>" width="50"></td>
-												<td width="300"><?= $produk['nama_produk']; ?></td>
-												<td width="100">Rp<?= number_format($produk['harga_produk']); ?></td>
-												<td width="max"><?= $produk['deskripsi_produk']; ?></td>
+												<th>ID</th>
+												<th>Produk</th>
+												<th>Nama</th>
+												<th>Harga</th>
+												<th>Deskripsi</th>
+												<th width="100">Action</th>
 											</tr>
-										<?php endforeach; ?>
+										</thead>
+										<tbody>
+											<!-- Item -->
+											<?php foreach ($produks as $produk) : ?>
+												<tr>
+													<td>
+														<a href="../invoice.html" class="font-weight-bold">
+															<?= $produk['id_produk']; ?>
+														</a>
+													</td>
+													<td width="200">
+														<img class="rounded" src="../web/img/foto_produk/<?= $produk['gambar_produk']; ?>" width="120">
+													</td>
+													<td width="200"><span class="font-weight-bold"><?= $produk['nama_produk']; ?></span></td>
+													<td width="200"><span class="font-weight-bold text-warning">Rp<?= number_format($produk['harga_produk']); ?></span></td>
+													<td><span class="font-weight-normal"><?= $produk['deskripsi_produk']; ?></span></td>
 
-
+													<td>
+														<div class="btn-group">
+															<button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																<span class="icon icon-sm">
+																	<span class="fas fa-ellipsis-h icon-dark"></span>
+																</span>
+																<span class="sr-only">Toggle Dropdown</span>
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="ftmenu.php?id_produk=<?= $produk['id_produk']; ?>"><span class="fas fa-eye mr-2"></span>Add Featured</a>
+																<a class="dropdown-item" href="#"><span class="fas fa-edit mr-2"></span>Edit</a>
+																<a class="dropdown-item text-danger" href="hapus.php?id_produk=<?= $produk['id_produk']; ?>" onclick="return confirm('yakin?');"><span class="fas fa-trash-alt mr-2"></span>Remove</a>
+															</div>
+														</div>
+													</td>
+												</tr>
+											<?php endforeach; ?>
+										</tbody>
 									</table>
-									<br><br>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-body">
 									<h4>Tambah Produk</h4>
 
 									<form action="tambah.php" method="post" enctype="multipart/form-data">
@@ -171,7 +212,7 @@ $produks = query("SELECT * FROM produk");
 											<input type="text" class="form-control" id="hargaProduk" name="hargaProduk">
 
 											<label for="deskripsiProduk" class="form-label">Deskripsi</label>
-											<input type="text" class="form-control" id="deskripsiProduk" name="deskripsiProduk">
+											<textarea class="form-control" id="deskripsiProduk" name="deskripsiProduk"></textarea>
 
 											<label for="formFile" class="form-label">Default file input example</label>
 											<input class="form-control" type="file" id="formFile" name="fotoProduk">

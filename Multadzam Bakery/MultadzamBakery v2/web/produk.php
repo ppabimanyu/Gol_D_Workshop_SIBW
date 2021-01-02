@@ -1,5 +1,5 @@
 <?php
-require 'admin/functions.php';
+require 'functions.php';
 $id_produk = $_GET['id_produk'];
 $produks = query("SELECT * FROM produk WHERE id_produk = $id_produk");
 ?>

@@ -1,5 +1,5 @@
 <?php
-require 'admin/functions.php';
+require 'functions.php';
 $fms = query("SELECT * FROM featured_menu");
 $produks = query("SELECT * FROM produk");
 ?>

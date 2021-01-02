@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Jan 2021 pada 17.34
+-- Waktu pembuatan: 02 Jan 2021 pada 12.41
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -55,8 +55,7 @@ CREATE TABLE `contact_us` (
 --
 
 INSERT INTO `contact_us` (`id_pesan`, `tgl_pesan`, `name_pesan`, `email_pesan`, `subject`, `pesan`) VALUES
-(4, '2020-12-30', 'Putra Prassiesa Abimanyu', 'abimstrees@gmail.com', 'Hello, World!', ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut magni at neque labore dolores dolorum nemo accusamus harum sunt nulla temporibus natus, asperiores fugit pariatur ex obcaecati quod, suscipit itaque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut magni at neque labore dolores dolorum nemo accusamus harum sunt nulla temporibus natus, asperiores fugit pariatur ex obcaecati quod, suscipit itaque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut magni at neque labore dolores dolorum nemo accusamus harum sunt nulla temporibus natus, asperiores fugit pariatur ex obcaecati quod, suscipit itaque.'),
-(7, '2020-12-31', '', '', '', ' ');
+(4, '2020-12-30', 'Putra Prassiesa Abimanyu', 'abimstrees@gmail.com', 'Hello, World!', ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut magni at neque labore dolores dolorum nemo accusamus harum sunt nulla temporibus natus, asperiores fugit pariatur ex obcaecati quod, suscipit itaque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut magni at neque labore dolores dolorum nemo accusamus harum sunt nulla temporibus natus, asperiores fugit pariatur ex obcaecati quod, suscipit itaque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut magni at neque labore dolores dolorum nemo accusamus harum sunt nulla temporibus natus, asperiores fugit pariatur ex obcaecati quod, suscipit itaque.');
 
 -- --------------------------------------------------------
 
@@ -80,7 +79,26 @@ INSERT INTO `featured_menu` (`id_fm`, `nama_fm`, `harga_fm`, `deskripsi_fm`, `ga
 (20, 'Roti Coklat', 30000, 'BoxBread seri DOME Chocolate Chips ini benar-benar diramu untuk penggemar coklat gelap sejati. Roti coklat yang penuh dengan kepingan coklat gelap. Double-Chocolate. Coklat banget deh pokoknya. Hanya coklat premium dengan full cocoa butter tulen yang kami pakai untuk roti ini. Only good real chocolate for chocolate lovers.', 'WhatsApp Image 2020-12-23 at 12.22.04 PM.jpeg'),
 (21, 'Roti Coklat', 40000, 'BoxBread seri DOME Chocolate Chips ini benar-benar diramu untuk penggemar coklat gelap sejati. Roti coklat yang penuh dengan kepingan coklat gelap. Double-Chocolate. Coklat banget deh pokoknya. Hanya coklat premium dengan full cocoa butter tulen yang kami pakai untuk roti ini. Only good real chocolate for chocolate lovers.', 'WhatsApp Image 2020-12-23 at 12.22.05 PM.jpeg'),
 (22, 'Roti Coklat', 10000, 'BoxBread seri DOME Chocolate Chips ini benar-benar diramu untuk penggemar coklat gelap sejati. Roti coklat yang penuh dengan kepingan coklat gelap. Double-Chocolate. Coklat banget deh pokoknya. Hanya coklat premium dengan full cocoa butter tulen yang kami pakai untuk roti ini. Only good real chocolate for chocolate lovers.', 'WhatsApp Image 2020-12-23 at 12.22.04 PM (1).jpeg'),
-(23, 'Roti Coklat', 20000, 'BoxBread seri DOME Chocolate Chips ini benar-benar diramu untuk penggemar coklat gelap sejati. Roti coklat yang penuh dengan kepingan coklat gelap. Double-Chocolate. Coklat banget deh pokoknya. Hanya coklat premium dengan full cocoa butter tulen yang kami pakai untuk roti ini. Only good real chocolate for chocolate lovers.', 'WhatsApp Image 2020-12-23 at 12.22.03 PM.jpeg');
+(25, 'Roti Coklat', 50000, 'BoxBread seri DOME Chocolate Chips ini benar-benar diramu untuk penggemar coklat gelap sejati. Roti coklat yang penuh dengan kepingan coklat gelap. Double-Chocolate. Coklat banget deh pokoknya. Hanya coklat premium dengan full cocoa butter tulen yang kami pakai untuk roti ini. Only good real chocolate for chocolate lovers.', 'WhatsApp Image 2020-12-23 at 12.07.01 PM.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `masuk`
+--
+
+CREATE TABLE `masuk` (
+  `id` int(11) NOT NULL,
+  `username` varchar(300) NOT NULL,
+  `password` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `masuk`
+--
+
+INSERT INTO `masuk` (`id`, `username`, `password`) VALUES
+(1, 'multadzam', '12345');
 
 -- --------------------------------------------------------
 
@@ -154,6 +172,12 @@ ALTER TABLE `featured_menu`
   ADD PRIMARY KEY (`id_fm`);
 
 --
+-- Indeks untuk tabel `masuk`
+--
+ALTER TABLE `masuk`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `mitra`
 --
 ALTER TABLE `mitra`
@@ -185,7 +209,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT untuk tabel `featured_menu`
 --
 ALTER TABLE `featured_menu`
-  MODIFY `id_fm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_fm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT untuk tabel `masuk`
+--
+ALTER TABLE `masuk`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `mitra`

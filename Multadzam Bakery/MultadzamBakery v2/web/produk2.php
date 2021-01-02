@@ -1,5 +1,5 @@
 <?php
-require 'admin/functions.php';
+require 'functions.php';
 $id_fm = $_GET['id_fm'];
 $fms = query("SELECT * FROM featured_menu WHERE id_fm = $id_fm");
 ?>
