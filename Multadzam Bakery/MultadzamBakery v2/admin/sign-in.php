@@ -45,6 +45,11 @@ if (isset($_COOKIE['cookielogin'])) {
 	<div class="wrapper">
 		<div class="main">
 			<main>
+				<!-- Catatan!! -->
+				<div style="position:absolute; color:red;">
+					<p>Username = multadzam <br>Password = 12345 <br>Cek Database!!</p>
+				</div>
+				<!-- Catatan!! -->
 
 				<!-- Section -->
 				<section class="d-flex align-items-center my-5 mt-lg-10 mb-lg-10">
