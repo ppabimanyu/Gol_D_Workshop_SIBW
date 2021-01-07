@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2020 at 03:27 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Generation Time: Jan 07, 2021 at 10:42 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -55,7 +54,8 @@ CREATE TABLE `contact_us` (
 --
 
 INSERT INTO `contact_us` (`id_pesan`, `name_pesan`, `email_pesan`, `subject`, `pesan`) VALUES
-(1, 'PUTRA PRASSIESA ABIMANYU', 'ppabimanyu@gmail.com', 'awdqw', ' avfrgrbgv');
+(1, 'PUTRA PRASSIESA ABIMANYU', 'ppabimanyu@gmail.com', 'awdqw', ' avfrgrbgv'),
+(2, 'ryan', 'msyarifjanuriansyah@gmail.com', 'Pengen renang', ' edawdasd');
 
 -- --------------------------------------------------------
 
@@ -76,8 +76,8 @@ CREATE TABLE `featured_menu` (
 --
 
 INSERT INTO `featured_menu` (`id_fm`, `nama_fm`, `harga_fm`, `deskripsi_fm`, `gambar_fm`) VALUES
-(6, 'sdvbdfbfgdbn', 56767, 'fgnghm', '249585.jpg'),
-(11, 'asxasc', 56767, 'efwvgreht', 'Cc.jpeg');
+(6, 'Roti O', 3500, 'Roti O salah satu roti yang akan menemani hari hari anda', '1.jpeg'),
+(11, 'Roti Sosis', 3500, 'Roti Sosis dengan saus dan mayonize menambah kenikmatan rasa roti ini', '2.jpeg');
 
 -- --------------------------------------------------------
 
@@ -123,8 +123,14 @@ CREATE TABLE `produk` (
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga_produk`, `deskripsi_produk`, `gambar_produk`) VALUES
 (11, 'Roti O', 56767, 'Roti O memiliki rasa cokelat.', '1.jpeg'),
 (12, 'Roti Sosis', 56767, 'Roti Sosis yang memiliki cita rasa yang tinggi.', '2.jpeg'),
-(13, 'Roti Coklat', 8765, 'Roti Coklat memiliki misis coklat diatasnya.', '3.jpeg'),
-(14, 'Pizza Mini', 8765, 'Roti Pizza Mini yang memiliki cita rasa yang tinggi.', '4.jpeg');
+(13, 'Roti Kepang', 8765, 'Roti Kepang berisi keju didalamnya.', '3.jpeg'),
+(14, 'Pizza Mini', 8765, 'Roti Pizza Mini yang memiliki cita rasa yang tinggi.', '4.jpeg'),
+(15, 'Roti Pisang Coklat', 2500, 'Roti Pisang Coklat berisi pisang dan coklat didalamnya.', '6.jpeg'),
+(16, 'Roti Hotdog ', 3000, 'Roti Hotdog memiliki sosis diatas roti dan dicampur dengan berbagai saos dan bumbu diatasnya.', 'rotihotdogbiasa.jpeg'),
+(17, 'Roti Hotdog Special', 3500, 'Roti Hotdog Spesial memiliki sosis diatas roti dan dicampur dengan berbagai saos dan bumbu serta memiliki beberapa selada dipinggin sosis.', 'hotdogspecial.jpeg'),
+(18, 'Roti Brownies', 2500, 'Roti Brownies memiliki rasa coklat dengan topping chocochips.', 'rotibrownies1.jpeg'),
+(19, 'Roti Coklat Wijen', 2500, 'Roti Coklat Wijen memiliki rasa coklat didalam roti serta taburan wijen diatasnya.', 'rotimanis.jpeg'),
+(20, 'Roti Coklat', 2500, 'Roti Coklat memiliki rasa coklat didalam roti dan taburan misis diatasnya.', 'roticoklat.jpeg');
 
 --
 -- Indexes for dumped tables
@@ -174,7 +180,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `featured_menu`
@@ -192,7 +198,7 @@ ALTER TABLE `mitra`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
