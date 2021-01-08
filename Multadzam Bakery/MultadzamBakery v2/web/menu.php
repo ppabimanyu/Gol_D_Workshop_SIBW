@@ -73,7 +73,7 @@ $produks = query("SELECT * FROM produk");
                                 <li><a class="dropdown-item" href="contact.php">Contact Us</a></li>
                             </ul>
                         </li>
-                        <li><a href="" class="link-dark"><i class=" fas fa-shopping-bag fa-2x"></i></a></li>
+                        <li><a href="cart.php" class="link-dark"><i class=" fas fa-shopping-bag fa-2x"></i></a></li>
                     </ul>
                 </div>
                 <!-- Collapsible wrapper -->

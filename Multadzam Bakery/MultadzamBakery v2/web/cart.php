@@ -73,7 +73,7 @@ require 'functions.php';
                                 <li><a class="dropdown-item" href="contact.php">Contact Us</a></li>
                             </ul>
                         </li>
-                        <li><a href="" class="link-dark"><i class=" fas fa-shopping-bag fa-2x"></i></a></li>
+                        <li><a href="cart.php" class="link-dark"><i class=" fas fa-shopping-bag fa-2x"></i></a></li>
                     </ul>
                 </div>
                 <!-- Collapsible wrapper -->
@@ -85,52 +85,66 @@ require 'functions.php';
 
     <!-- Detail Produk -->
     <div class="cart" style="background-color:#F9F9F9; margin-top:-100px;">
-        <div class="container" style="background-color:#F9F9F9; padding-top: 200px; width:66%; margin-left:17%">
+        <div class="container" style="background-color:#F9F9F9; padding-top: 200px; width:66%; margin-left:17%; min-height:620px">
             <div class="mx-auto" style="text-align: center; font-family: 'Cormorant Upright', serif; font-size: 22px;">Cart</div><br>
             <div class="container" style="background-color:white; padding-top:60px; padding-bottom: 50px;">
-                <?php foreach ($_SESSION['keranjang'] as $id_produk => $qty) : ?>
-                    <?php
-                    $brg = query("SELECT * FROM produk WHERE id_produk = $id_produk")[0];
-                    $gambar_produk = ($brg["gambar_produk"]);
-                    $nama_produk = ($brg["nama_produk"]);
-                    $harga_produk = ($brg["harga_produk"]);
-                    $_SESSION['subharga'][$id_produk] = $brg["harga_produk"] * $qty;
-                    ?>
+                <?php
+                if (empty($_SESSION['keranjang'])) : ?>
+                    <h1 style="text-align: center; font-family: 'Cormorant Upright', serif; font-size: 22px; text-align:center">Empty</h1>
+            </div>
+        <?php endif; ?>
+        <?php
+        if (!empty($_SESSION['keranjang'])) : ?>
 
-                    <div class="row">
-                        <div class="col-md-2" style="text-align: center;"><br><br><a class="link-danger" href=""><i class="fas fa-trash-alt fa-2x"></i></a></div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="bg-image hover-zoom">
-                                        <img style="border-radius: 10px" src="img/foto_produk/<?= $gambar_produk; ?>" alt="" class="w-100" />
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="col-md-12">
-                                        <h5><?= $nama_produk; ?></h5>
-                                    </div><br>
-                                    <h5 style="font-family: 'Jomolhari', serif; font-size: 13px; color:#DABC81;">Rp<?= number_format($harga_produk); ?>
+            <?php foreach ($_SESSION['keranjang'] as $id_produk => $qty) : ?>
+                <?php
+                $brg = query("SELECT * FROM produk WHERE id_produk = $id_produk")[0];
+                $gambar_produk = ($brg["gambar_produk"]);
+                $nama_produk = ($brg["nama_produk"]);
+                $harga_produk = ($brg["harga_produk"]);
+                $_SESSION['subharga'][$id_produk] = $brg["harga_produk"] * $qty;
+                ?>
+
+                <div class="row">
+                    <div class="col-md-2" style="text-align: center;"><br><br><a class="link-danger" href="hapus_cart.php?id=<?= $id_produk ?>"><i class="fas fa-trash-alt fa-2x"></i></a></div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="bg-image hover-zoom">
+                                    <a href="produk.php?id_produk=<?= $id_produk; ?>"> <img style="border-radius: 10px" src="img/foto_produk/<?= $gambar_produk; ?>" alt="" class="w-100" /></a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-2" style="font-family: 'Jomolhari', serif;"><br><br>x<?= $_SESSION['keranjang'][$id_produk] ?></div>
-                        <div class="col-md-2" style="font-family: 'Jomolhari', serif;"><br><br><?= $_SESSION['subharga'][$id_produk]; ?></div>
-                        <div class="container">
-                            <hr>
+                            <div class="col-md-8">
+                                <div class="col-md-12">
+                                    <a style="color: black;" href="produk.php?id_produk=<?= $id_produk; ?>">
+                                        <h5><?= $nama_produk; ?></h5>
+                                    </a>
+                                </div><br>
+                                <a style="font-family: 'Jomolhari', serif; font-size: 13px; color:#DABC81;" href="produk.php?id_produk=<?= $id_produk; ?>">
+                                    <h5>Rp<?= number_format($harga_produk); ?>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <br><br><br><br>
-                <?php endforeach; ?>
-                <div class="row">
-                    <div class="col-md-8"></div>
-                    <div class="col-md-2"><a href="menu.php" class=" btn btn-primary">Lanjut Belanja</a></div>
-                    <div class="col-md-2"><a href="checkout.php" class=" btn btn-primary">Checkout</a></div>
+                    <div class="col-md-2" style="font-family: 'Jomolhari', serif;"><br><br>x<?= $_SESSION['keranjang'][$id_produk] ?></div>
+                    <div class="col-md-2" style="font-family: 'Jomolhari', serif;"><br><br><?= $_SESSION['subharga'][$id_produk]; ?></div>
+                    <div class="container">
+                        <br>
+                        <hr>
+                    </div>
                 </div>
+                <br>
+            <?php endforeach; ?>
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-2"><a href="menu.php" class=" btn btn-lg btn-warning">Lanjut Belanja</a></div>
+                <div class="col-md-2"><a href="checkout.php" class=" btn btn-lg btn-warning">Checkout</a></div>
+            </div>
+        <?php endif; ?>
 
 
-            </div><br><br>
-        </div>
+        </div><br><br>
+    </div>
     </div>
     <!-- End Detail Produk -->
 

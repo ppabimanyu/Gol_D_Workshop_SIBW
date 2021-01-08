@@ -73,7 +73,7 @@ $produks = query("SELECT * FROM produk");
                                 <li><a class="dropdown-item" href="contact.php">Contact Us</a></li>
                             </ul>
                         </li>
-                        <li><a href="" class="link-dark"><i class=" fas fa-shopping-bag fa-2x"></i></a></li>
+                        <li><a href="cart.php" class="link-dark"><i class=" fas fa-shopping-bag fa-2x"></i></a></li>
                     </ul>
                 </div>
                 <!-- Collapsible wrapper -->
@@ -107,7 +107,7 @@ $produks = query("SELECT * FROM produk");
                                         </a>
                                         <p style=" font-family: 'Cormorant Upright', serif; font-size: 16px;"><?= $fm['deskripsi_fm']; ?></p>
                                         <h5 style="color:#DABC81 ;">Rp<?= number_format($fm['harga_fm']); ?></h5>
-                                        <a class="btn btn-warning" href="produk2.php?id_fm=<?= $fm['id_fm']; ?>">BUY NOW</a>
+                                        <a class="btn btn-warning" href="produk.php?id_produk=<?= $fm['id_produk']; ?>">BUY NOW</a>
                                     </div>
                                 </div>
                             </div>

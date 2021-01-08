@@ -66,15 +66,6 @@ $produks = query("SELECT * FROM produk");
 					<i class="hamburger align-self-center"></i>
 				</a>
 
-				<form class="d-none d-sm-inline-block">
-					<div class="input-group input-group-navbar">
-						<input type="text" class="form-control" placeholder="Search…" aria-label="Search">
-						<button class="btn" type="button">
-							<i class="align-middle" data-feather="search"></i>
-						</button>
-					</div>
-				</form>
-
 				<div class="navbar-collapse collapse">
 					<ul class="navbar-nav navbar-align">
 						<li class="nav-item dropdown">
@@ -120,7 +111,7 @@ $produks = query("SELECT * FROM produk");
 												<tr>
 													<td>
 														<a href="../invoice.html" class="font-weight-bold">
-															<?= $ftmenu['id_fm']; ?>
+															<?= $ftmenu['id_produk']; ?>
 														</a>
 													</td>
 													<td width="200">
@@ -184,7 +175,6 @@ $produks = query("SELECT * FROM produk");
 															</button>
 															<div class="dropdown-menu">
 																<a class="dropdown-item" href="ftmenu.php?id_produk=<?= $produk['id_produk']; ?>"><span class="fas fa-eye mr-2"></span>Add Featured</a>
-																<a class="dropdown-item" href="#"><span class="fas fa-edit mr-2"></span>Edit</a>
 																<a class="dropdown-item text-danger" href="hapus.php?id_produk=<?= $produk['id_produk']; ?>" onclick="return confirm('yakin?');"><span class="fas fa-trash-alt mr-2"></span>Remove</a>
 															</div>
 														</div>

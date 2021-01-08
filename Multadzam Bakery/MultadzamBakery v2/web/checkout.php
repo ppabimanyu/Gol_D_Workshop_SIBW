@@ -1,3 +1,7 @@
+<?php
+session_start();
+require 'functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,52 +83,32 @@
     <!-- End Navbar -->
 
     <!-- Mitra -->
-    <div class="container" style=" margin-top: 100px; width:66%; background-color:white; margin-left:17%">
+    <div class="container" style=" margin-top: 100px; width:66%; background-color:white; margin-left:17%; min-height:620px;">
         <!--Section: Contact v.2-->
         <section class="mb-4">
 
             <!--Section heading-->
-            <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+            <h2 class="h1-responsive font-weight-bold text-center my-4" style="font-family: 'Cormorant Upright', serif; font-size: 22px;">Checkout</h2>
             <!--Section description-->
-            <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-                a matter of hours to help you.</p>
+            <div class="alert alert-success" role="alert">
+                Semua pesanan akan diproses setelah melakukan pemesanan. Mengenai metode pembayaran dan biaya pengiriman mohon tunggu konfirmasi dari staff kami.
+            </div><br>
+            <h5>Checkout</h5>
+            <hr style="color: red;">
 
-            <div class="row">
+            <form id="contact-form" name="contact-form" action="checkout_proses.php" method="POST">
+                <div class="row mb-5">
 
-                <!--Grid column-->
-                <div class="col-md-9 mb-md-0 mb-5">
-                    <form id="contact-form" name="contact-form" action="contact_proses.php" method="POST">
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-md-6">
-                                <div class="md-form mb-0">
-                                    <label for="name" class="">Your name</label>
-                                    <input type="text" id="name" name="name" class="form-control" required>
-                                </div>
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class="col-md-6">
-                                <div class="md-form mb-0">
-                                    <label for="email" class="">Your email</label>
-                                    <input type="text" id="email" name="email" class="form-control" required>
-                                </div>
-                            </div>
-                            <!--Grid column-->
-
-                        </div>
-                        <!--Grid row-->
+                    <!--Grid column-->
+                    <div class="col-md-6 mb-md-0 mb-5">
+                        <h5 style="color:#DC4C47;">Billing Details</h5><br>
 
                         <!--Grid row-->
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 mb-5">
                                 <div class="md-form mb-0">
-                                    <label for="subject" class="">Subject</label>
-                                    <input type="text" id="subject" name="subject" class="form-control" required>
+                                    <label for="nama" class="">Nama Penerima</label>
+                                    <input type="text" id="nama" name="nama" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -134,63 +118,148 @@
                         <div class="row">
 
                             <!--Grid column-->
-                            <div class="col-md-12">
+                            <div class="col-md-6 mb-5">
+                                <div class="md-form mb-0">
+                                    <label for="phone" class="">Telepon</label>
+                                    <input type="text" id="phone" name="phone" class="form-control" required>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-6 mb-5">
+                                <div class="md-form mb-0">
+                                    <label for="email" class="">No. Whatsapp / Email</label>
+                                    <input type="text" id="email" name="wa_email" class="form-control" required>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid row-->
+                            <div class="col-md-12 mb-5">
+                                <div class="md-form mb-0">
+                                    <label for="alamat" class="">Alamat</label>
+                                    <input type="text" id="alamat" name="alamat" class="form-control" required>
+                                </div>
+                            </div>
+                            <!--Grid row-->
+
+                            <!--Grid column-->
+                            <div class="col-md-12 mb-5">
 
                                 <div class="md-form">
-                                    <label for="message">Your message</label>
-                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" required></textarea>
+                                    <label for="catatan">Catatan</label>
+                                    <textarea type="text" id="catatan" name="catatan" rows="5" class="form-control md-textarea"></textarea>
                                 </div>
 
                             </div>
-                        </div><br>
-                        <!--Grid row-->
-
-                        <!-- Submit Button -->
-                        <button type="submit" name="submit" class="btn btn-primary">
-                            Submit
-                        </button>
-
-                    </form><br>
-
-                    <div class="status"></div>
-                    <?php
-                    if (isset($_POST["submit"])) : ?>
-                        <div class="alert alert-success" role="alert">
-                            Thank you for your message. It has been sent.
                         </div>
-                    <?php endif; ?>
+                        <!--Grid row-->
+                    </div>
+                    <!--Grid column-->
+                    <div class="col-md-6 mb-md-0 mb-5">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <h5 style="color:#DC4C47;">Your Order</h5>
+                            </div>
+                        </div><br>
+                        <?php $total = 0; ?>
+                        <?php foreach ($_SESSION['keranjang'] as $id_produk => $qty) : ?>
+                            <?php
+                            $brg = query("SELECT * FROM produk WHERE id_produk = $id_produk")[0];
+                            $gambar_produk = ($brg["gambar_produk"]);
+                            $nama_produk = ($brg["nama_produk"]);
+                            $harga_produk = ($brg["harga_produk"]);
+                            $_SESSION['subharga'][$id_produk] = $brg["harga_produk"] * $qty;
+                            ?>
+
+                            <div class="row">
+                                <div class="col-md-2" style="text-align: center;"></div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="bg-image hover-zoom">
+                                                <img style="border-radius: 10px" src="img/foto_produk/<?= $gambar_produk; ?>" alt="" class="w-100" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="col-md-12">
+                                                <h5><?= $nama_produk; ?></h5>
+                                            </div>
+                                            <h5 style="font-family: 'Jomolhari', serif; font-size: 13px; color:#DABC81;">Rp<?= number_format($harga_produk); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2" style="font-family: 'Jomolhari', serif; margin-top:-30px;"><br><br>x<?= $_SESSION['keranjang'][$id_produk] ?></div>
+                                <div class="col-md-2" style="font-family: 'Jomolhari', serif; margin-top:-30px;"><br><br>Rp<?= $_SESSION['subharga'][$id_produk]; ?></div>
+                            </div>
+                            <br>
+                            <?php
+                            $total += $_SESSION['subharga'][$id_produk]; ?>
+                        <?php endforeach; ?>
+
+                        <input type="hidden" name="total" value="<?= $total; ?>">
+
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8"></div>
+                            <div class="col-md-2">
+                                <h5>Total</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>Rp<?= $total; ?></h5><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <div class="border rounded-3 mb-5">
+                                    <h5 class="m-2 ms-4">Shipping <br>
+                                        <hr>
+                                    </h5>
+                                    <div class="form-check m-2 ms-4">
+                                        <input class="form-check-input" type="radio" name="shipping" value="Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon." id="shipping1">
+                                        <label class="form-check-label" for="shipping1">
+                                            Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.
+                                        </label>
+                                    </div>
+                                    <div class="form-check m-2 ms-4">
+                                        <input class="form-check-input" type="radio" name="shipping" value="Ambil di Outlet Multadzam" id="shipping2" checked>
+                                        <label class="form-check-label" for="shipping2">
+                                            Ambil di Outlet Multadzam
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <!-- Submit Button -->
+                                        <button type="submit" name="submit" class="btn btn-lg btn-warning">
+                                            KIRIM PESANAN
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!--Grid column-->
 
-                <!--Grid column-->
-                <div class="col-md-3 text-center">
-                    <ul class="list-unstyled mb-0">
-                        <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                            <p>Jember</p>
-                        </li>
-
-                        <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                            <p>08123456789</p>
-                        </li>
-
-                        <li><i class="fab fa-whatsapp mt-4 fa-2x"></i>
-                            <p>08123456789</p>
-                        </li>
-
-                        <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                            <p>multadzam@gmail.com</p>
-                        </li>
-                    </ul>
-                </div>
-                <!--Grid column-->
-
-            </div>
-
+            </form>
         </section>
         <!--Section: Contact v.2-->
-
     </div><br><br>
-    <!-- End Mitra -->
+    <!-- End Checkout -->
 
     <!-- Footer -->
     <footer class="bg-light text-center text-lg-start">

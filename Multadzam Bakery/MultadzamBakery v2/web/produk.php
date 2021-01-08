@@ -73,7 +73,7 @@ $produks = query("SELECT * FROM produk WHERE id_produk = $id_produk");
                                 <li><a class="dropdown-item" href="contact.php">Contact Us</a></li>
                             </ul>
                         </li>
-                        <li><a href="" class="link-dark"><i class=" fas fa-shopping-bag fa-2x"></i></a></li>
+                        <li><a href="cart.php" class="link-dark"><i class=" fas fa-shopping-bag fa-2x"></i></a></li>
                     </ul>
                 </div>
                 <!-- Collapsible wrapper -->
@@ -99,7 +99,7 @@ $produks = query("SELECT * FROM produk WHERE id_produk = $id_produk");
                         <h5 style="color:#DABC81 ;">Rp<?= number_format($produk['harga_produk']); ?></h5>
                         <form action="add_cart.php" method="POST">
                             <input type="hidden" name="id_produk" value="<?= $produk['id_produk']; ?>">
-                            <input type="number" name="quantity" size="5" autofocus value="1" autocomplete="off">
+                            <input type="number" min="1" name="quantity" size="5" autofocus value="1" autocomplete="off">
                             <button type="submit" name="pesan" class="btn btn-warning">ADD TO CART</button>
                         </form>
                     </div>

@@ -9,11 +9,12 @@ if (isset($_POST["submit"])) {
   $email = $_POST["email"];
   $subject = $_POST["subject"];
   $message = $_POST["message"];
+  $tgl = date("Y-m-d");
 
   // query insert data
   $query = "INSERT INTO contact_us
             VALUES
-            ('', '$name', '$email', '$subject', ' $message')";
+            ('','$tgl','$name', '$email', '$subject', ' $message')";
   mysqli_query($conn, $query);
 }
 if (isset($_POST["submit"]) > 0) {

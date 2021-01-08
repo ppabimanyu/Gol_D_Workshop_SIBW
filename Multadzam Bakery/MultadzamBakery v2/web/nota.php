@@ -1,3 +1,7 @@
+<?php
+require 'functions.php';
+$orders = query("SELECT * FROM detail_checkout WHERE id_checkout IN( SELECT MAX(id_checkout) FROM detail_checkout )");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,114 +87,142 @@
         <!--Section: Contact v.2-->
         <section class="mb-4">
 
-            <!--Section heading-->
-            <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
-            <!--Section description-->
-            <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-                a matter of hours to help you.</p>
-
+            <h2 class="h1-responsive font-weight-bold text-center my-4" style="font-family: 'Cormorant Upright', serif; font-size: 22px;">Checkout</h2>
+            <h5>Order Details</h5>
+            <hr style="color: red;">
+            <div class="alert alert-success" role="alert">
+                Thank you. Your order has been received.
+            </div><br>
             <div class="row">
 
                 <!--Grid column-->
-                <div class="col-md-9 mb-md-0 mb-5">
-                    <form id="contact-form" name="contact-form" action="contact_proses.php" method="POST">
+                <div class="col-md-6 mb-md-0 mb-5">
+                    <h5 style="color:#DC4C47;">Billing Details</h5><br>
 
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-md-6">
-                                <div class="md-form mb-0">
-                                    <label for="name" class="">Your name</label>
-                                    <input type="text" id="name" name="name" class="form-control" required>
-                                </div>
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class="col-md-6">
-                                <div class="md-form mb-0">
-                                    <label for="email" class="">Your email</label>
-                                    <input type="text" id="email" name="email" class="form-control" required>
-                                </div>
-                            </div>
-                            <!--Grid column-->
-
-                        </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="md-form mb-0">
-                                    <label for="subject" class="">Subject</label>
-                                    <input type="text" id="subject" name="subject" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-md-12">
-
-                                <div class="md-form">
-                                    <label for="message">Your message</label>
-                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" required></textarea>
-                                </div>
-
-                            </div>
-                        </div><br>
-                        <!--Grid row-->
-
-                        <!-- Submit Button -->
-                        <button type="submit" name="submit" class="btn btn-primary">
-                            Submit
-                        </button>
-
-                    </form><br>
-
-                    <div class="status"></div>
                     <?php
-                    if (isset($_POST["submit"])) : ?>
-                        <div class="alert alert-success" role="alert">
-                            Thank you for your message. It has been sent.
+                    $order = query("SELECT * FROM detail_checkout WHERE id_checkout IN( SELECT MAX(id_checkout) FROM detail_checkout )")[0];
+                    $id = $order['id_checkout'];
+                    $checkout = query("SELECT * FROM checkout WHERE id_checkout = $id")[0];
+                    ?>
+
+                    <div class="row border" style="border-radius: 10px;">
+                        <div class="col-md-12 mb-5 mt-5">
+                            <div class="row">
+                                <div class="col-md-3 m-2">
+                                    <h5 style="font-family: 'Jomolhari', serif; margin-top:-30px;">Nama :</h5>
+                                </div>
+                                <div class="col-md-8 m-2">
+                                    <h5 style="font-family: 'Jomolhari', serif; margin-top:-30px; text-align:right"><?= $checkout['nama']; ?></h5>
+                                </div>
+                                <hr>
+                            </div>
                         </div>
-                    <?php endif; ?>
+                        <div class="col-md-12 mb-5">
+                            <div class="row">
+                                <div class="col-md-3  m-2">
+                                    <h5 style="font-family: 'Jomolhari', serif; margin-top:-30px;">Contact :</h5>
+                                </div>
+                                <div class="col-md-8 m-2">
+                                    <h5 style="font-family: 'Jomolhari', serif; margin-top:-30px; text-align:right"><?= $checkout['wa-email']; ?></h5>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-5">
+                            <div class="row">
+                                <div class="col-md-3  m-2">
+                                    <h5 style="font-family: 'Jomolhari', serif; margin-top:-30px;">Alamat :</h5>
+                                </div>
+                                <div class="col-md-8 m-2">
+                                    <h5 style="font-family: 'Jomolhari', serif; margin-top:-30px; text-align:right"><?= $checkout['alamat']; ?></h5>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-5">
+                            <div class="row">
+                                <div class="col-md-3  m-2">
+                                    <h5 style="font-family: 'Jomolhari', serif; margin-top:-30px;">Catatan :</h5>
+                                </div>
+                                <div class="col-md-8 m-2">
+                                    <h5 style="font-family: 'Jomolhari', serif; margin-top:-30px; text-align:right"><?= $checkout['catatan']; ?></h5>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-5">
+                            <div class="row">
+                                <div class="col-md-3  m-2">
+                                    <h5 style="font-family: 'Jomolhari', serif; margin-top:-30px;">Shipping :</h5>
+                                </div>
+                                <div class="col-md-8 m-2">
+                                    <h5 style="font-family: 'Jomolhari', serif; margin-top:-30px; text-align:right"><?= $checkout['shipping']; ?></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!--Grid column-->
 
-                <!--Grid column-->
-                <div class="col-md-3 text-center">
-                    <ul class="list-unstyled mb-0">
-                        <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                            <p>Jember</p>
-                        </li>
-
-                        <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                            <p>08123456789</p>
-                        </li>
-
-                        <li><i class="fab fa-whatsapp mt-4 fa-2x"></i>
-                            <p>08123456789</p>
-                        </li>
-
-                        <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                            <p>multadzam@gmail.com</p>
-                        </li>
-                    </ul>
+                <!-- Grid column -->
+                <!-- skjhfdjsdaklldsfkjgjbbjbfnd -->
+                <div class="col-md-6 mb-md-0 mb-5">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-10">
+                            <h5 style="color:#DC4C47;">Your Order</h5>
+                        </div>
+                    </div><br>
+                    <?php foreach ($orders as $order) : ?>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            <h5><?= $order['nama_produk']; ?></h5>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h5 style="font-family: 'Jomolhari', serif; font-size: 13px; color:#DABC81;">Rp<?= number_format($order['harga']); ?></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2" style="font-family: 'Jomolhari', serif; margin-top:-30px;"><br><br>x<?= $order['qty']; ?></div>
+                            <div class="col-md-2" style="font-family: 'Jomolhari', serif; margin-top:-30px;"><br><br>Rp<?= number_format($order['sub_harga']); ?></div>
+                        </div>
+                        <br>
+                    <?php endforeach; ?>
+                    <?php
+                    $id = $order['id_checkout'];
+                    $total = query("SELECT * FROM checkout WHERE id_checkout = $id")[0];
+                    ?>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-10">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-1">
+                            <h5 style="font-family: 'Jomolhari', serif;">Total</h5>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 style="font-family: 'Jomolhari', serif; text-align:right;">Rp<?= number_format($total['total']); ?></h5><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-3">
+                            <div class="col-md-12"><a href="menu.php" class=" btn btn-warning">Lanjut Belanja</a></div>
+                        </div>
+                    </div>
                 </div>
-                <!--Grid column-->
-
             </div>
-
         </section>
         <!--Section: Contact v.2-->
-
     </div><br><br>
-    <!-- End Mitra -->
+    <!-- End Checkout -->
 
     <!-- Footer -->
     <footer class="bg-light text-center text-lg-start">
