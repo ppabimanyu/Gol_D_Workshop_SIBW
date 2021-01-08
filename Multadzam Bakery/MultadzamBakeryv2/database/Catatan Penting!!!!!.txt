@@ -1,0 +1,6 @@
+Multadzam Bakery v2
+(Pake prototype baru, g sama kyk yg lama)
+
+Catatan:
+Impor database dengan nama multadzambakery;
+Ini database sementara, msih ada yg kurang

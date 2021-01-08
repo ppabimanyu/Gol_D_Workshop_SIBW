@@ -1,0 +1,8 @@
+.container .carousel .carousel-inner .carousel-item .container .col-xl-6 {
+  min-height: 400px;
+  background-color: white;
+}
+.container .carousel .carousel-inner .carousel-item .container .col-xl-6 img {
+  width: 600px;
+  border-radius: 20px;
+}
