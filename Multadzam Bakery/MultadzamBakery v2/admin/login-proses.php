@@ -3,36 +3,33 @@
 session_start();
 //panggil statik variabel username dan password
 require 'functions.php';
-$login = query("SELECT * FROM masuk")[0];
-$username = $login["username"];
-$password = md5($login["password"]);
-//get post
-$user = $_POST["username"];
-$pass = $_POST["password"];
+if (isset($_POST["login"])) {
 
-// var_dump($username);
-// var_dump($password);
-// var_dump($user);
-// var_dump($pass);
-// die;
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-//untuk menentukan expire cookie, dihtung dri waktu server + waktu umur cookie          
-$time = time();
-//cek jika setcookie di cek set cookie jika tidak ''
-$check = isset($_POST['setcookie']) ? $_POST['setcookie'] : '';
+    $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
 
-if (($username == $user) && ($password == md5($pass))) {
-    //jika valid set session 1
-    $_SESSION['logged'] = 1;
-    //jika remembere me, set cookie
-    if ($check) {
-        setcookie("cookielogin[user]", $user, $time + 3600);
-        setcookie("cookielogin[pass]", $pass, $time + 3600);
+    // cek username
+    if (mysqli_num_rows($result) === 1) {
+
+        // cek password
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row["password"])) {
+            // set session
+            $_SESSION["login"] = true;
+
+            // cek remember me
+            if (isset($_POST['remember'])) {
+                // buat cookie
+                setcookie('id', $row['id'], time() + 3600);
+                setcookie('key', hash('sha256', $row['username']), time() + 3600);
+            }
+
+            header("Location: index.php");
+            exit;
+        };
     }
-    //redirect member_area
-    header('Location: index.php');
-    exit();
-} else {
-    header('Location: sign-in.php?pesan=gagal');
-    exit();
+
+    header("Location: sign-in.php?pesan=gagal");
 }

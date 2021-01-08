@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Jan 2021 pada 12.27
+-- Waktu pembuatan: 08 Jan 2021 pada 15.12
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -63,7 +63,8 @@ INSERT INTO `checkout` (`id_checkout`, `nama`, `phone`, `wa-email`, `alamat`, `c
 (20, 'Putra Prassiesa Abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'scdf', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 250000, '2021-01-08'),
 (21, 'Putra Prassiesa Abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'sdfghgjh', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 130000, '2021-01-08'),
 (22, 'andi aa', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'assfert', 'Ambil di Outlet Multadzam', 160000, '2021-01-08'),
-(23, 'putra prassiesa abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'saf', 'Ambil di Outlet Multadzam', 30000, '2021-01-08');
+(23, 'putra prassiesa abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'saf', 'Ambil di Outlet Multadzam', 30000, '2021-01-08'),
+(24, 'Putra Prassiesa Abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'savd', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 60000, '2021-01-08');
 
 -- --------------------------------------------------------
 
@@ -120,7 +121,8 @@ INSERT INTO `detail_checkout` (`id`, `id_checkout`, `id_produk`, `nama_produk`, 
 (32, 21, 19, 'Roti Coklat', 40000, 2, 80000),
 (33, 22, 18, 'Roti Coklat', 30000, 2, 60000),
 (34, 22, 20, 'Roti Coklat', 50000, 2, 100000),
-(35, 23, 18, 'Roti Coklat', 30000, 1, 30000);
+(35, 23, 18, 'Roti Coklat', 30000, 1, 30000),
+(36, 24, 21, 'Roti Coklat', 60000, 1, 60000);
 
 -- --------------------------------------------------------
 
@@ -146,25 +148,6 @@ INSERT INTO `featured_menu` (`id_fm`, `id_produk`, `nama_fm`, `harga_fm`, `deskr
 (27, 18, 'Roti Coklat', 30000, 'BoxBread seri DOME Chocolate Chips ini benar-benar diramu untuk penggemar coklat gelap sejati. Roti coklat yang penuh dengan kepingan coklat gelap. Double-Chocolate. Coklat banget deh pokoknya. Hanya coklat premium dengan full cocoa butter tulen yang kami pakai untuk roti ini. Only good real chocolate for chocolate lovers.', 'WhatsApp Image 2020-12-23 at 12.22.04 PM.jpeg'),
 (28, 17, 'Roti Coklat', 20000, 'BoxBread seri DOME Chocolate Chips ini benar-benar diramu untuk penggemar coklat gelap sejati. Roti coklat yang penuh dengan kepingan coklat gelap. Double-Chocolate. Coklat banget deh pokoknya. Hanya coklat premium dengan full cocoa butter tulen yang kami pakai untuk roti ini. Only good real chocolate for chocolate lovers.', 'WhatsApp Image 2020-12-23 at 12.22.03 PM.jpeg'),
 (29, 20, 'Roti Coklat', 50000, 'BoxBread seri DOME Chocolate Chips ini benar-benar diramu untuk penggemar coklat gelap sejati. Roti coklat yang penuh dengan kepingan coklat gelap. Double-Chocolate. Coklat banget deh pokoknya. Hanya coklat premium dengan full cocoa butter tulen yang kami pakai untuk roti ini. Only good real chocolate for chocolate lovers.', 'WhatsApp Image 2020-12-23 at 12.07.01 PM.jpeg');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `masuk`
---
-
-CREATE TABLE `masuk` (
-  `id` int(11) NOT NULL,
-  `username` varchar(300) NOT NULL,
-  `password` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `masuk`
---
-
-INSERT INTO `masuk` (`id`, `username`, `password`) VALUES
-(1, 'multadzam', '12345');
 
 -- --------------------------------------------------------
 
@@ -215,6 +198,25 @@ INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga_produk`, `deskripsi_pro
 (20, 'Roti Coklat', 50000, 'BoxBread seri DOME Chocolate Chips ini benar-benar diramu untuk penggemar coklat gelap sejati. Roti coklat yang penuh dengan kepingan coklat gelap. Double-Chocolate. Coklat banget deh pokoknya. Hanya coklat premium dengan full cocoa butter tulen yang kami pakai untuk roti ini. Only good real chocolate for chocolate lovers.', 'WhatsApp Image 2020-12-23 at 12.07.01 PM.jpeg'),
 (21, 'Roti Coklat', 60000, 'BoxBread seri DOME Chocolate Chips ini benar-benar diramu untuk penggemar coklat gelap sejati. Roti coklat yang penuh dengan kepingan coklat gelap. Double-Chocolate. Coklat banget deh pokoknya. Hanya coklat premium dengan full cocoa butter tulen yang kami pakai untuk roti ini. Only good real chocolate for chocolate lovers.', 'WhatsApp Image 2020-12-23 at 12.22.04 PM (2).jpeg');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(300) NOT NULL,
+  `password` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'multadzam', '$2y$10$kEsBF5JAoeA7bMkBVzIazOtxN6kMAlcTuKYTQ6pfshnFyP5r5CqJC');
+
 --
 -- Indexes for dumped tables
 --
@@ -250,12 +252,6 @@ ALTER TABLE `featured_menu`
   ADD PRIMARY KEY (`id_fm`);
 
 --
--- Indeks untuk tabel `masuk`
---
-ALTER TABLE `masuk`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indeks untuk tabel `mitra`
 --
 ALTER TABLE `mitra`
@@ -266,6 +262,12 @@ ALTER TABLE `mitra`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
+
+--
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -281,7 +283,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT untuk tabel `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `contact_us`
@@ -293,19 +295,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT untuk tabel `detail_checkout`
 --
 ALTER TABLE `detail_checkout`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT untuk tabel `featured_menu`
 --
 ALTER TABLE `featured_menu`
   MODIFY `id_fm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT untuk tabel `masuk`
---
-ALTER TABLE `masuk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `mitra`
@@ -318,6 +314,12 @@ ALTER TABLE `mitra`
 --
 ALTER TABLE `produk`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

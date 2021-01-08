@@ -1,24 +1,25 @@
 <?php
-//masukkan variabel statik, variabel ini merupakan variabel yang username & password, untuk sistem pada realnya
-//username dan password dapat di cek dari database.
-require 'functions.php';
-$login = query("SELECT * FROM masuk")[0];
-$username = $login["username"];
-$password = md5($login["password"]);
-//mulai session
 session_start();
-//cek cookie, dalam sistem login sederhana ini, cookie diberinama "cookielogin"
-if (isset($_COOKIE['cookielogin'])) {
-	//cek cookie login dengan password dan username yang valid
-	//$user = $_COOKIE['cookielogin']['username'];
-	//print_r($user);
-	if (($_COOKIE['cookielogin']['user'] == $username) && ($_COOKIE['cookielogin']['pass'] == $password)) {
-		print_r($_COOKIE);
-		//jika valid set status login 1
-		$_SESSION['logged'] = 1;
-		//redirect ke halaman member area
-		header('Location: index.php');
+require 'functions.php';
+
+// cek cookie
+if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
+	$id = $_COOKIE['id'];
+	$key = $_COOKIE['key'];
+
+	// ambil username berdasarkan id
+	$result = mysqli_query($conn, "SELECT username FROM user WHERE id = $id");
+	$row = mysqli_fetch_assoc($result);
+
+	// cek cookie dan username
+	if ($key === hash('sha256', $row['username'])) {
+		$_SESSION['login'] = true;
 	}
+}
+
+if (isset($_SESSION["login"])) {
+	header("Location: index.php");
+	exit;
 }
 ?>
 <!DOCTYPE html>
@@ -89,13 +90,13 @@ if (isset($_COOKIE['cookielogin'])) {
 										<!-- End of Form -->
 										<div class="d-flex justify-content-between align-items-top mb-4">
 											<div class="form-check">
-												<input class="form-check-input" type="checkbox" value="true" id="setcookie" name="setcookie">
-												<label class="form-check-label mb-0" for="setcookie">
+												<input class="form-check-input" type="checkbox" value="true" id="remember" name="remember">
+												<label class="form-check-label mb-0" for="remember">
 													Remember me
 												</label>
 											</div>
 										</div>
-										<button type="submit" name="submit" value="true" class="btn btn-block btn-primary">Sign in</button>
+										<button type="submit" name="login" class="btn btn-block btn-primary">Sign in</button>
 									</form>
 								</div>
 							</div>

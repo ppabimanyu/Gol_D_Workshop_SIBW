@@ -1,12 +1,11 @@
 <?php
 session_start();
+$_SESSION = [];
 session_unset();
 session_destroy();
-if(isset($_COOKIE['cookielogin']))      
-{
-$time = time();
-    setcookie("cookielogin[user]", $time - 3600);
-    setcookie("cookielogin[pass]", $time - 3600);
-}
-header('Location: sign-in.php');
-exit();
+
+setcookie('id', '', time() - 3600);
+setcookie('key', '', time() - 3600);
+
+header("Location: sign-in.php");
+exit;
