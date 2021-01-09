@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Jan 2021 pada 15.12
+-- Waktu pembuatan: 09 Jan 2021 pada 13.30
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -50,21 +50,19 @@ CREATE TABLE `checkout` (
   `catatan` text NOT NULL,
   `shipping` text NOT NULL,
   `total` int(11) NOT NULL,
-  `tgl` date NOT NULL
+  `tgl` date NOT NULL,
+  `status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `checkout`
 --
 
-INSERT INTO `checkout` (`id_checkout`, `nama`, `phone`, `wa-email`, `alamat`, `catatan`, `shipping`, `total`, `tgl`) VALUES
-(18, 'Putra Prassiesa Abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'sdsfg', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 100000, '2021-01-08'),
-(19, 'Putra Prassiesa Abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'sdsfbdg', 'Ambil di Outlet Multadzam', 300000, '2021-01-08'),
-(20, 'Putra Prassiesa Abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'scdf', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 250000, '2021-01-08'),
-(21, 'Putra Prassiesa Abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'sdfghgjh', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 130000, '2021-01-08'),
-(22, 'andi aa', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'assfert', 'Ambil di Outlet Multadzam', 160000, '2021-01-08'),
-(23, 'putra prassiesa abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'saf', 'Ambil di Outlet Multadzam', 30000, '2021-01-08'),
-(24, 'Putra Prassiesa Abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'savd', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 60000, '2021-01-08');
+INSERT INTO `checkout` (`id_checkout`, `nama`, `phone`, `wa-email`, `alamat`, `catatan`, `shipping`, `total`, `tgl`, `status`) VALUES
+(27, 'Putra Prassiesa Abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'asdfghjk', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 200000, '2021-01-09', 'Due'),
+(28, 'Putra Prassiesa Abimanyu', '0812345678', 'asd@gmail.com', 'jember', 'd vFBDdfB', 'Ambil di Outlet Multadzam', 80000, '2021-01-09', 'Due'),
+(29, 'Putra Prassiesa Abimanyu', '0812345678', 'asd@gmail.com', 'jember', ' sfvb', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 10000, '2021-01-09', 'Due'),
+(30, 'Putra Prassiesa Abimanyu', '08123456789', 'abimstrees@gmail.com', 'fewcfEWGV', 'WBRVBRWG', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 1500000, '2021-01-09', 'Proses');
 
 -- --------------------------------------------------------
 
@@ -110,19 +108,14 @@ CREATE TABLE `detail_checkout` (
 --
 
 INSERT INTO `detail_checkout` (`id`, `id_checkout`, `id_produk`, `nama_produk`, `harga`, `qty`, `sub_harga`) VALUES
-(24, 18, 17, 'Roti Coklat', 20000, 5, 100000),
-(25, 19, 20, 'Roti Coklat', 50000, 2, 100000),
-(26, 19, 19, 'Roti Coklat', 40000, 5, 200000),
-(27, 20, 18, 'Roti Coklat', 30000, 1, 30000),
-(28, 20, 20, 'Roti Coklat', 50000, 2, 100000),
-(29, 20, 16, 'Roti Coklat', 10000, 2, 20000),
-(30, 20, 17, 'Roti Coklat', 20000, 5, 100000),
-(31, 21, 20, 'Roti Coklat', 50000, 1, 50000),
-(32, 21, 19, 'Roti Coklat', 40000, 2, 80000),
-(33, 22, 18, 'Roti Coklat', 30000, 2, 60000),
-(34, 22, 20, 'Roti Coklat', 50000, 2, 100000),
-(35, 23, 18, 'Roti Coklat', 30000, 1, 30000),
-(36, 24, 21, 'Roti Coklat', 60000, 1, 60000);
+(41, 27, 18, 'Roti Coklat', 30000, 2, 60000),
+(42, 27, 20, 'Roti Coklat', 50000, 2, 100000),
+(43, 27, 19, 'Roti Coklat', 40000, 1, 40000),
+(44, 28, 17, 'Roti Coklat', 20000, 1, 20000),
+(45, 28, 21, 'Roti Coklat', 60000, 1, 60000),
+(46, 29, 16, 'Roti Coklat', 10000, 1, 10000),
+(47, 30, 20, 'Roti Coklat', 50000, 30, 1500000),
+(48, 31, 16, 'Roti Coklat', 10000, 1, 10000);
 
 -- --------------------------------------------------------
 
@@ -201,6 +194,25 @@ INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga_produk`, `deskripsi_pro
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `riwayat`
+--
+
+CREATE TABLE `riwayat` (
+  `id_checkout` int(11) NOT NULL,
+  `nama` varchar(300) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `wa-email` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `catatan` text NOT NULL,
+  `shipping` text NOT NULL,
+  `total` int(11) NOT NULL,
+  `tgl` date NOT NULL,
+  `status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -264,6 +276,12 @@ ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
+-- Indeks untuk tabel `riwayat`
+--
+ALTER TABLE `riwayat`
+  ADD PRIMARY KEY (`id_checkout`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -283,7 +301,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT untuk tabel `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `contact_us`
@@ -295,7 +313,7 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT untuk tabel `detail_checkout`
 --
 ALTER TABLE `detail_checkout`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT untuk tabel `featured_menu`

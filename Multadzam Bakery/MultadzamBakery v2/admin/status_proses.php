@@ -22,22 +22,22 @@ if ($stat == '1') {
     $query = "UPDATE checkout SET status = 'Proses' WHERE id_checkout = $id";
 
     mysqli_query($conn, $query);
-    header('Location: ab.php');
+    header('Location:index.php');
     exit;
 }
 if ($stat == '2') {
     # code...
     mysqli_query($conn, "INSERT INTO riwayat VALUES  ('$id',' $nama', '$phone', '$wa_email', '$alamat', '$catatan', '$shipping', '$total', '$tgl', 'Finish')");
     mysqli_query($conn, "DELETE FROM checkout WHERE id_checkout = $id");
-    header('Location: ab.php');
+    header('Location:index.php');
     exit;
 }
 if ($stat == '3') {
     # code...
     mysqli_query($conn, "INSERT INTO riwayat VALUES  ('$id',' $nama', '$phone', '$wa_email', '$alamat', '$catatan', '$shipping', '$total', '$tgl', 'Canceled')");
     mysqli_query($conn, "DELETE FROM checkout WHERE id_checkout = $id");
-    header('Location: ab.php');
+    header('Location:index.php');
     exit;
 }
-header('Location: ab.php');
+header('Location:index.php');
 exit;
