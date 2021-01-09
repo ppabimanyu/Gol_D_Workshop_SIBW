@@ -14,7 +14,7 @@ if (isset($_POST["submit"])) {
 
 	$query = "INSERT INTO checkout
 				VALUES
-			  ('', '$nama', '$phone', '$wa_email', '$alamat', '$catatan', '$shipping', '$total', '$tgl')
+			  ('', '$nama', '$phone', '$wa_email', '$alamat', '$catatan', '$shipping', '$total', '$tgl', 'Due')
 			";
 	mysqli_query($conn, $query);
 }

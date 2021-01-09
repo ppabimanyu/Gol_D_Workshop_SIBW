@@ -1,10 +1,18 @@
 <?php
+require 'functions.php';
 session_start();
 
 if (!isset($_SESSION["login"])) {
 	header("Location: sign-in.php");
 	exit;
 }
+$jumlahDataPerHalaman = 20;
+$jumlahData = count(query("SELECT * FROM riwayat"));
+$jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+$halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+$awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
+
+$details = query("SELECT * FROM riwayat ORDER BY 1 DESC LIMIT $awalData, $jumlahDataPerHalaman");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +30,8 @@ if (!isset($_SESSION["login"])) {
 	<title>Multadzam Bakery</title>
 
 	<link href="css/app.css" rel="stylesheet">
+	<!-- Volt CSS -->
+	<link type="text/css" href="../css/volt.css" rel="stylesheet">
 </head>
 
 <body>
@@ -67,15 +77,6 @@ if (!isset($_SESSION["login"])) {
 					<i class="hamburger align-self-center"></i>
 				</a>
 
-				<form class="d-none d-sm-inline-block">
-					<div class="input-group input-group-navbar">
-						<input type="text" class="form-control" placeholder="Search…" aria-label="Search">
-						<button class="btn" type="button">
-							<i class="align-middle" data-feather="search"></i>
-						</button>
-					</div>
-				</form>
-
 				<div class="navbar-collapse collapse">
 					<ul class="navbar-nav navbar-align">
 						<li class="nav-item dropdown">
@@ -98,93 +99,114 @@ if (!isset($_SESSION["login"])) {
 
 			<main class="content">
 				<div class="container-fluid p-0">
-
-					<h1 style="text-align: center; margin-top:25%;">Coming Soon</h1>
-
-					<!-- <div class="row mb-2 mb-xl-3">
-						<div class="col-auto d-none d-sm-block">
-							<h3><strong>Analytics</strong> Dashboard</h3>
-						</div>
-					</div>
 					<div class="row">
-						<div class="col-12 d-flex">
-							<div class="card flex-fill">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Latest Projects</h5>
-								</div>
-								<table class="table table-hover my-0">
+						<div class="col-12">
+							<div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
+								<table class="table table-hover">
 									<thead>
 										<tr>
-											<th>Name</th>
-											<th class="d-none d-xl-table-cell">Start Date</th>
-											<th class="d-none d-xl-table-cell">End Date</th>
+											<th>ID</th>
+											<th>Tanggal</th>
+											<th>Nama</th>
+											<th>Telepon</th>
+											<th>Whatsapp / Email</th>
+											<th style="max-width: 200px;">Alamat</th>
+											<th style="width: 200px;">Shipping</th>
 											<th>Status</th>
-											<th class="d-none d-md-table-cell">Assignee</th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>Project Apollo</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-										</tr>
-										<tr>
-											<td>Project Fireball</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge bg-danger">Cancelled</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>
-										<tr>
-											<td>Project Hades</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Sharon Lessman</td>
-										</tr>
-										<tr>
-											<td>Project Nitro</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge bg-warning">In progress</span></td>
-											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-										</tr>
-										<tr>
-											<td>Project Phoenix</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>
-										<tr>
-											<td>Project X</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Sharon Lessman</td>
-										</tr>
-										<tr>
-											<td>Project Romeo</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Christina Mason</td>
-										</tr>
-										<tr>
-											<td>Project Wombat</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge bg-warning">In progress</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>
+										<!-- Item -->
+										<?php foreach ($details as $detail) : ?>
+											<tr>
+												<td>
+													<a href="detail_checkout.php?id=<?= $detail['id_checkout']; ?>" class="font-weight-bold">
+														<?= $detail['id_checkout']; ?>
+													</a>
+												</td>
+												<td>
+													<span class="font-weight-normal"><?= $detail['tgl']; ?></span>
+												</td>
+												<td><span class="font-weight-normal"><?= $detail['nama']; ?></span></td>
+												<td><span class="font-weight-normal"><?= $detail['phone']; ?></span></td>
+												<td><span class="font-weight-normal"><?= $detail['wa-email']; ?></span></td>
+												<td><span class="font-weight-normal"><?= $detail['alamat']; ?></span></td>
+												<td><span class="font-weight-normal"><?= $detail['shipping']; ?>
+													</span></td>
+
+												<!-- Status -->
+												<?php
+												if ($detail['status'] === "Due") : ?>
+													<td><span class="font-weight-normal"><?= $detail['status']; ?></span></td>
+													<td>
+													<?php endif; ?>
+
+													<?php
+													if ($detail['status'] === "Proses") : ?>
+													<td><span class="font-weight-normal text-warning"><?= $detail['status']; ?></span></td>
+													<td>
+													<?php endif; ?>
+
+													<?php
+													if ($detail['status'] === "Finish") : ?>
+													<td><span class="font-weight-normal text-success"><?= $detail['status']; ?></span></td>
+													<td>
+													<?php endif; ?>
+
+													<?php
+													if ($detail['status'] === "Canceled") : ?>
+													<td><span class="font-weight-normal text-danger"><?= $detail['status']; ?></span></td>
+													<td>
+													<?php endif; ?>
+													<!-- End Status -->
+													<a class="text-danger" href="hapus.php?id_riwayat=<?= $detail['id_checkout']; ?>" onclick="return confirm('yakin?');"><span class="fas fa-trash-alt mr-2"></span>Remove</a>
+													</td>
+											</tr>
+										<?php endforeach; ?>
 									</tbody>
 								</table>
+								<div class="card-footer px-3 border-0 d-flex align-items-center justify-content-between">
+									<nav aria-label="Page navigation example">
+										<ul class="pagination mb-0">
+											<?php if ($halamanAktif > 1) : ?>
+												<li class="page-item">
+													<a class="page-link" href="?halaman=<?= $halamanAktif - 1; ?>">Previous</a>
+												</li>
+											<?php endif; ?>
+											<?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+												<?php if ($i == $halamanAktif) : ?>
+													<li class="page-item active">
+														<a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+													</li>
+												<?php else : ?>
+													<li class="page-item">
+														<a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+													</li>
+												<?php endif; ?>
+											<?php endfor; ?>
+											<?php if ($halamanAktif < $jumlahHalaman) : ?>
+												<li class="page-item">
+													<a class="page-link" href="?halaman=<?= $halamanAktif + 1; ?>">Next</a>
+												</li>
+											<?php endif; ?>
+										</ul>
+									</nav>
+									<div class="font-weight-bold small">Showing <b><?= $halamanAktif; ?></b> out of <b><?= $jumlahHalaman; ?></b> entries</div>
+								</div>
 							</div>
 						</div>
-					</div> -->
+					</div>
+					<div class="row">
+						<div class="col-12">
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+
+						</div>
+					</div>
 				</div>
 			</main>
 		</div>

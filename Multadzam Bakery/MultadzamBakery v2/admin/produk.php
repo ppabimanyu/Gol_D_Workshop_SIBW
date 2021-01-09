@@ -6,8 +6,8 @@ if (!isset($_SESSION["login"])) {
 	header("Location: sign-in.php");
 	exit;
 }
-$ftmenus = query("SELECT * FROM featured_menu");
-$produks = query("SELECT * FROM produk");
+$ftmenus = query("SELECT * FROM featured_menu ORDER BY 1 DESC");
+$produks = query("SELECT * FROM produk ORDER BY 1 DESC");
 ?>
 <!DOCTYPE html>
 <html lang="en">
