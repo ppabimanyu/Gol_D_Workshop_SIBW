@@ -1,10 +1,12 @@
 <?php
 session_start();
+require 'functions.php';
 
 if (!isset($_SESSION["login"])) {
 	header("Location: sign-in.php");
 	exit;
 }
+$akun = query("SELECT * FROM user WHERE id = 1")[0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +19,9 @@ if (!isset($_SESSION["login"])) {
 	<meta name="author" content="AdminKit">
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+	<link rel="shortcut icon" href="img/icons/mdb-favicon.ico" />
 
-	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+	<title>Multadzam Bakery</title>
 
 	<link href="css/app.css" rel="stylesheet">
 </head>
@@ -66,16 +68,6 @@ if (!isset($_SESSION["login"])) {
 				<a class="sidebar-toggle d-flex">
 					<i class="hamburger align-self-center"></i>
 				</a>
-
-				<form class="d-none d-sm-inline-block">
-					<div class="input-group input-group-navbar">
-						<input type="text" class="form-control" placeholder="Search…" aria-label="Search">
-						<button class="btn" type="button">
-							<i class="align-middle" data-feather="search"></i>
-						</button>
-					</div>
-				</form>
-
 				<div class="navbar-collapse collapse">
 					<ul class="navbar-nav navbar-align">
 						<li class="nav-item dropdown">
@@ -84,7 +76,7 @@ if (!isset($_SESSION["login"])) {
 							</a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
-								<img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+								<img src="img/icons/icon.png" class="avatar img-fluid rounded-circle mr-1" /> <span class="text-dark"><?= $akun['username'] ?></span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item" href="setting.php"><i class="align-middle mr-1" data-feather="settings"></i> Settings</a>
@@ -102,170 +94,109 @@ if (!isset($_SESSION["login"])) {
 						<div class="container-fluid p-0">
 
 							<h1 class="h3 mb-3">Settings</h1>
+							<div class="col-md-9 col-xl-6">
+								<div class="tab-content">
+									<div class="tab-pane fade show active" id="account" role="tabpanel">
 
-							<div class="row">
-								<div class="col-md-3 col-xl-2">
+										<div class="card">
+											<div class="card-header">
+											</div>
+											<div class="card-body">
+												<form action="setting_proses.php" method="post">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="mb-3">
+																<label class="form-label font-weight-bold" for="inputUsername">Username</label>
+																<?php
+																if (isset($_GET['usr'])) {
+																	if ($_GET['usr'] == "berhasil") {
+																?><div class="alert alert-success" role="alert">
+																			Username Berhasil di Update!
+																		</div><?php
+																			}
+																		};
+																				?>
+																<?php
+																if (isset($_GET['usr'])) {
+																	if ($_GET['usr'] == "gagal") {
+																?><div class="alert alert-danger" role="alert">
+																			Username Berhasil di Update!
+																		</div><?php
+																			}
+																		};
+																				?>
+																<input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username" required>
+															</div>
+														</div>
+													</div>
+													<button type="submit" name="submit" class="btn btn-primary">Save changes</button>
+												</form>
+												<hr><br>
+												<h5 class="card-title font-weight-bold">Password</h5>
+												<?php
+												if (isset($_GET['pesan'])) {
+													if ($_GET['pesan'] == "berhasil") {
+												?><div class="alert alert-success" role="alert">
+															Password Berhasil di Update!
+														</div><?php
+															}
+														};
+																?>
+												<form action="update_password.php" method="POST">
+													<div class="mb-3">
+														<label class="form-label" for="inputPasswordCurrent">Current password</label>
+														<input type="password" name="password" class="form-control" id="inputPasswordCurrent" required>
+														<?php
+														if (isset($_GET['pesan'])) {
+															if ($_GET['pesan'] == "salah") {
+														?><div class="alert alert-danger" role="alert">
+																	Password salah!
+																</div><?php
+																	}
+																};
+																		?>
+													</div>
+													<div class="mb-3">
+														<label class="form-label" for="inputPasswordNew">New password</label>
+														<input type="password" name="password1" class="form-control" id="inputPasswordNew" required>
+													</div>
+													<div class="mb-3">
+														<label class="form-label" for="inputPasswordNew2">Verify password</label>
+														<input type="password" name="password2" class="form-control" id="inputPasswordNew2" required>
+														<?php
+														if (isset($_GET['pesan'])) {
+															if ($_GET['pesan'] == "gagal") {
+														?><div class="alert alert-danger" role="alert">
+																	konfirmasi password tidak sesuai!
+																</div><?php
+																	}
+																};
+																		?>
+													</div>
+													<button type="submit" name="submit" class="btn btn-primary">Save changes</button>
+												</form>
 
-									<div class="card">
-										<div class="card-header">
-											<h5 class="card-title mb-0">Profile Settings</h5>
+
+											</div>
 										</div>
 
-										<div class="list-group list-group-flush" role="tablist">
-											<a class="list-group-item list-group-item-action active" data-toggle="list" href="#account" role="tab">
-												Account
-											</a>
-											<a class="list-group-item list-group-item-action" data-toggle="list" href="#password" role="tab">
-												Password
-											</a>
-											<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-												Privacy and safety
-											</a>
-											<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-												Email notifications
-											</a>
-											<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-												Web notifications
-											</a>
-											<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-												Widgets
-											</a>
-											<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-												Your data
-											</a>
-											<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-												Delete account
-											</a>
-										</div>
 									</div>
-								</div>
+									<div class="tab-pane fade" id="password" role="tabpanel">
+										<div class="card">
+											<div class="card-body">
 
-								<div class="col-md-9 col-xl-10">
-									<div class="tab-content">
-										<div class="tab-pane fade show active" id="account" role="tabpanel">
-
-											<div class="card">
-												<div class="card-header">
-
-													<h5 class="card-title mb-0">Public info</h5>
-												</div>
-												<div class="card-body">
-													<form>
-														<div class="row">
-															<div class="col-md-8">
-																<div class="mb-3">
-																	<label class="form-label" for="inputUsername">Username</label>
-																	<input type="text" class="form-control" id="inputUsername" placeholder="Username">
-																</div>
-																<div class="mb-3">
-																	<label class="form-label" for="inputUsername">Biography</label>
-																	<textarea rows="2" class="form-control" id="inputBio" placeholder="Tell something about yourself"></textarea>
-																</div>
-															</div>
-															<div class="col-md-4">
-																<div class="text-center">
-																	<img alt="Charles Hall" src="img/avatars/avatar.jpg" class="rounded-circle img-responsive mt-2" width="128" height="128" />
-																	<div class="mt-2">
-																		<span class="btn btn-primary"><i class="fas fa-upload"></i> Upload</span>
-																	</div>
-																	<small>For best results, use an image at least 128px by 128px in .jpg format</small>
-																</div>
-															</div>
-														</div>
-
-														<button type="submit" class="btn btn-primary">Save changes</button>
-													</form>
-
-												</div>
-											</div>
-
-											<div class="card">
-												<div class="card-header">
-
-													<h5 class="card-title mb-0">Private info</h5>
-												</div>
-												<div class="card-body">
-													<form>
-														<div class="row">
-															<div class="mb-3 col-md-6">
-																<label class="form-label" for="inputFirstName">First name</label>
-																<input type="text" class="form-control" id="inputFirstName" placeholder="First name">
-															</div>
-															<div class="mb-3 col-md-6">
-																<label class="form-label" for="inputLastName">Last name</label>
-																<input type="text" class="form-control" id="inputLastName" placeholder="Last name">
-															</div>
-														</div>
-														<div class="mb-3">
-															<label class="form-label" for="inputEmail4">Email</label>
-															<input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-														</div>
-														<div class="mb-3">
-															<label class="form-label" for="inputAddress">Address</label>
-															<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-														</div>
-														<div class="mb-3">
-															<label class="form-label" for="inputAddress2">Address 2</label>
-															<input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-														</div>
-														<div class="row">
-															<div class="mb-3 col-md-6">
-																<label class="form-label" for="inputCity">City</label>
-																<input type="text" class="form-control" id="inputCity">
-															</div>
-															<div class="mb-3 col-md-4">
-																<label class="form-label" for="inputState">State</label>
-																<select id="inputState" class="form-control">
-																	<option selected>Choose...</option>
-																	<option>...</option>
-																</select>
-															</div>
-															<div class="mb-3 col-md-2">
-																<label class="form-label" for="inputZip">Zip</label>
-																<input type="text" class="form-control" id="inputZip">
-															</div>
-														</div>
-														<button type="submit" class="btn btn-primary">Save changes</button>
-													</form>
-
-												</div>
-											</div>
-
-										</div>
-										<div class="tab-pane fade" id="password" role="tabpanel">
-											<div class="card">
-												<div class="card-body">
-													<h5 class="card-title">Password</h5>
-
-													<form>
-														<div class="mb-3">
-															<label class="form-label" for="inputPasswordCurrent">Current password</label>
-															<input type="password" class="form-control" id="inputPasswordCurrent">
-															<small><a href="#">Forgot your password?</a></small>
-														</div>
-														<div class="mb-3">
-															<label class="form-label" for="inputPasswordNew">New password</label>
-															<input type="password" class="form-control" id="inputPasswordNew">
-														</div>
-														<div class="mb-3">
-															<label class="form-label" for="inputPasswordNew2">Verify password</label>
-															<input type="password" class="form-control" id="inputPasswordNew2">
-														</div>
-														<button type="submit" class="btn btn-primary">Save changes</button>
-													</form>
-
-												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-
 						</div>
-					</main>
+
 				</div>
 			</main>
 		</div>
+		</main>
+	</div>
 	</div>
 
 	<script src="js/app.js"></script>

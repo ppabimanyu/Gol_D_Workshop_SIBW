@@ -9,6 +9,7 @@ if (!isset($_SESSION["login"])) {
 $id = $_GET['id'];
 $orders = query("SELECT * FROM detail_checkout WHERE id_checkout = $id");
 $checkout = query("SELECT * FROM checkout WHERE id_checkout = $id")[0];
+$akun = query("SELECT * FROM user WHERE id = 1")[0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,7 +82,7 @@ $checkout = query("SELECT * FROM checkout WHERE id_checkout = $id")[0];
 							</a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
-								<img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+								<img src="img/icons/icon.png" class="avatar img-fluid rounded-circle mr-1" alt="Charles Hall" /> <span class="text-dark"><?= $akun['username'] ?></span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item" href="setting.php"><i class="align-middle mr-1" data-feather="settings"></i> Settings</a>

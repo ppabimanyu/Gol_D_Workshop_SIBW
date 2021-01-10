@@ -7,6 +7,7 @@ if (!isset($_SESSION["login"])) {
 	exit;
 }
 $pesans = query("SELECT * FROM contact_us");
+$akun = query("SELECT * FROM user WHERE id = 1")[0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,16 +69,6 @@ $pesans = query("SELECT * FROM contact_us");
 				<a class="sidebar-toggle d-flex">
 					<i class="hamburger align-self-center"></i>
 				</a>
-
-				<form class="d-none d-sm-inline-block">
-					<div class="input-group input-group-navbar">
-						<input type="text" class="form-control" placeholder="Search…" aria-label="Search">
-						<button class="btn" type="button">
-							<i class="align-middle" data-feather="search"></i>
-						</button>
-					</div>
-				</form>
-
 				<div class="navbar-collapse collapse">
 					<ul class="navbar-nav navbar-align">
 						<li class="nav-item dropdown">
@@ -86,7 +77,7 @@ $pesans = query("SELECT * FROM contact_us");
 							</a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
-								<img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+								<img src="img/icons/icon.png" class="avatar img-fluid rounded-circle mr-1" alt="Charles Hall" /> <span class="text-dark"><?= $akun['username'] ?></span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item" href="setting.php"><i class="align-middle mr-1" data-feather="settings"></i> Settings</a>

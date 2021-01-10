@@ -15,7 +15,7 @@ if (isset($_POST["login"])) {
 
         // cek password
         $row = mysqli_fetch_assoc($result);
-        if (password_verify($password, $row["password"])) {
+        if (password_verify($password, $row["sandi"])) {
             // set session
             $_SESSION["login"] = true;
 

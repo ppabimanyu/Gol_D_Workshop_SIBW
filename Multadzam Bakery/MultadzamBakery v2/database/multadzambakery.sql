@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Jan 2021 pada 13.30
+-- Waktu pembuatan: 10 Jan 2021 pada 06.28
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -60,8 +60,6 @@ CREATE TABLE `checkout` (
 
 INSERT INTO `checkout` (`id_checkout`, `nama`, `phone`, `wa-email`, `alamat`, `catatan`, `shipping`, `total`, `tgl`, `status`) VALUES
 (27, 'Putra Prassiesa Abimanyu', '08123456789', 'ppabimanyu@gmail.com', 'jember', 'asdfghjk', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 200000, '2021-01-09', 'Due'),
-(28, 'Putra Prassiesa Abimanyu', '0812345678', 'asd@gmail.com', 'jember', 'd vFBDdfB', 'Ambil di Outlet Multadzam', 80000, '2021-01-09', 'Due'),
-(29, 'Putra Prassiesa Abimanyu', '0812345678', 'asd@gmail.com', 'jember', ' sfvb', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 10000, '2021-01-09', 'Due'),
 (30, 'Putra Prassiesa Abimanyu', '08123456789', 'abimstrees@gmail.com', 'fewcfEWGV', 'WBRVBRWG', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 1500000, '2021-01-09', 'Proses');
 
 -- --------------------------------------------------------
@@ -210,6 +208,14 @@ CREATE TABLE `riwayat` (
   `status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `riwayat`
+--
+
+INSERT INTO `riwayat` (`id_checkout`, `nama`, `phone`, `wa-email`, `alamat`, `catatan`, `shipping`, `total`, `tgl`, `status`) VALUES
+(28, ' Putra Prassiesa Abimanyu', '0812345678', 'asd@gmail.com', 'jember', 'd vFBDdfB', 'Ambil di Outlet Multadzam', 80000, '2021-01-09', 'Canceled'),
+(29, ' Putra Prassiesa Abimanyu', '0812345678', 'asd@gmail.com', 'jember', ' sfvb', 'Kirim Dengan Minimal Order; Staff Kami Akan Verifikasi Melalui Telepon.', 10000, '2021-01-09', 'Finish');
+
 -- --------------------------------------------------------
 
 --
@@ -219,15 +225,15 @@ CREATE TABLE `riwayat` (
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(300) NOT NULL,
-  `password` varchar(300) NOT NULL
+  `sandi` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`) VALUES
-(1, 'multadzam', '$2y$10$kEsBF5JAoeA7bMkBVzIazOtxN6kMAlcTuKYTQ6pfshnFyP5r5CqJC');
+INSERT INTO `user` (`id`, `username`, `sandi`) VALUES
+(1, 'multadzam', '$2y$10$1h6XTlMvM5/.fgVYBdGI6OD9CLHN60dyWtzKQScIAYkSkn7mpzkpi');
 
 --
 -- Indexes for dumped tables
